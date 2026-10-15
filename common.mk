@@ -157,7 +157,11 @@ DUMMY := $(shell mkdir -p $(ALL_BUILDDIRS))
 .PRECIOUS: $(SBIN)
 
 patch_mwasmarm:
-	$(ASPATCH) -q $(MWAS)
+	@if od -An -tx1 -N4 $(MWAS) 2>/dev/null | grep -q '7f 45 4c 46'; then \
+		echo "patch_mwasmarm: skipping $(MWAS) (native ELF, already patched by metroskrew)"; \
+	else \
+		$(ASPATCH) -q $(MWAS); \
+	fi
 
 $(BUILD_DIR)/lib/NitroSDK/%.o: private MWCCVER := 2.0/sp2p3
 $(BUILD_DIR)/lib/MSL_C/%.o: private MWCCVER := 2.0/sp2p3

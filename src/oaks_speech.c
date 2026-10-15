@@ -551,7 +551,8 @@ BOOL OakSpeech_Init(OverlayManager *ovyMan, int *pState) {
     MainOverlayArgs *mainOvyArgs = OverlayManager_GetArgs(ovyMan);
     data->saveData = mainOvyArgs->saveData;
     data->options = Save_PlayerData_GetOptionsAddr(data->saveData);
-    data->state = OAK_SPEECH_MAIN_STATE_START_TUTORIAL_MUSIC;
+    // Skip Oak's intro speech and tutorial screens; go straight to gender select.
+    data->state = OAK_SPEECH_MAIN_STATE_SETUP_GENDER_SELECT_MENU;
     data->unk_010 = 0;
     data->overlayManager = NULL;
     data->namingScreenArgs_Player = NamingScreen_CreateArgs(HEAP_ID_OAKS_SPEECH, NAME_SCREEN_PLAYER, 0, PLAYER_NAME_LENGTH, data->options, NULL);
