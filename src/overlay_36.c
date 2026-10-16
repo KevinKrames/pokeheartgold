@@ -2,12 +2,9 @@
 
 #include "global.h"
 
-#include "constants/charcode.h"
 #include "constants/easy_chat.h"
-#include "constants/flags.h"
 #include "constants/mail.h"
 #include "constants/species.h"
-#include "constants/vars.h"
 
 #include "msgdata/msg.naix"
 #include "msgdata/msg/msg_0292.h"
@@ -17,7 +14,6 @@
 #include "apricorn_tree.h"
 #include "field_system.h"
 #include "friend_group.h"
-#include "player_data.h"
 #include "heap.h"
 #include "location_backup.h"
 #include "mail.h"
@@ -112,12 +108,8 @@ BOOL ov36_TitleScreen_NewGame_AppExec(OverlayManager *man, int *state) {
 
 BOOL ov36_TitleScreen_NewGame_AppExit(OverlayManager *man, int *state) {
 #pragma unused(man, state)
-    // Hand off to Oak's speech overlay for gender select + name entry.
-    // OakSpeech_Exit will call back to ov36_App_InitGameState_AfterOakSpeech
-    // which runs InitGameStateAfterOakSpeech_Internal (trainer ID, RTC, etc.)
-    // and then launches the field system.
     Heap_Destroy(HEAPID_OV36);
-    RegisterMainOverlay(gApplication_OakSpeech.ovy_id, &gApplication_OakSpeech);
+    RegisterMainOverlay(FS_OVERLAY_ID_NONE, &gApplication_OakSpeech);
 
     return TRUE;
 }
@@ -259,26 +251,11 @@ static void Continue_LoadSaveData_HandleError(enum HeapID heapID, SaveData *save
 static void NewGame_InitSaveData(enum HeapID heapID, SaveData *saveData) {
 #pragma unused(heapID)
     Save_InitDynamicRegion(saveData);
+    Save_SetPositionToPlayerRoom(saveData);
 
-    // Spawn in Elm's lab facing the starter table; bedroom wakeup is skipped below.
-    Save_SetPositionToElmsLab(saveData);
+    PlayerProfile_SetMoney(Save_PlayerData_GetProfile(saveData), 3000);
 
-    PlayerProfile *profile = Save_PlayerData_GetProfile(saveData);
-    PlayerProfile_SetMoney(profile, 3000);
+    Save_VarsFlags_SetFishingCompetitionLengthRecord(Save_VarsFlags_Get(saveData), 56150); // 3'6"
 
-    SaveVarsFlags *varsFlags = Save_VarsFlags_Get(saveData);
-
-    // Skip the bedroom wakeup cutscene (VAR_SCENE_PLAYERS_HOUSE_1F == 0 triggers it).
-    // Also grant the items mom would normally hand the player in that scene.
-    SetScriptVar(varsFlags, VAR_SCENE_PLAYERS_HOUSE_1F, 1);
-    SetScriptFlag(varsFlags, FLAG_GOT_BAG);
-    SetScriptFlag(varsFlags, FLAG_GOT_TRAINER_CARD);
-    SetScriptFlag(varsFlags, FLAG_GOT_SAVE_BUTTON);
-    SetScriptFlag(varsFlags, FLAG_GOT_OPTIONS_BUTTON);
-
-    // Block the lab exit until the player picks a starter.
-    SetScriptFlag(varsFlags, FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE);
-
-    Save_VarsFlags_SetFishingCompetitionLengthRecord(varsFlags, 56150); // 3'6"
-    SetFlag960(varsFlags);
+    SetFlag960(Save_VarsFlags_Get(saveData));
 }

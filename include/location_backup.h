@@ -7,6 +7,5 @@
 void Location_SetToPlayerRoom(Location *data);
 void Location_SetToOutsidePlayerHome(Location *data);
 void Save_SetPositionToPlayerRoom(SaveData *saveData);
-void Save_SetPositionToElmsLab(SaveData *saveData);
 
 #endif // POKEHEARTGOLD_FIELD_LOCATION_BACKUP_H
