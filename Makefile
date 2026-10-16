@@ -277,6 +277,12 @@ $(BUILD_DIR)/lib/MSL_C/src/msl_scanf_sscanf.o: private MWCCVER := 2.0/sp2p3
 include tools/alarm-partition/alarm.mk
 
 $(BUILD_DIR)/lib/NitroSDK/src/snd/SND_command.o: private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/SND_main.o:    private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/SND_work.o:    private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/SND_alarm.o:   private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/SND_bank.o:    private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/SND_util.o:    private MWCCVER := 2.0/sp2p2
+$(BUILD_DIR)/lib/NitroSDK/src/snd/snd_%.o:       private MWCCVER := 2.0/sp2p2
 $(BUILD_DIR)/lib/NitroSDK/src/snd/SND_command.o: lib/NitroSDK/src/snd/SND_command.snd-section-map.json tools/nitro-section-renames/rename_snd_sections.py
 
 $(BUILD_DIR)/lib/NitroSDK/src/os/os_spinLock.o: lib/NitroSDK/src/os/os_spinLock.snd-section-map.json tools/nitro-section-renames/rename_snd_sections.py
