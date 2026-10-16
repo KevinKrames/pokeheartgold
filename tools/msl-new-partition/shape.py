@@ -95,10 +95,10 @@ def inventory(b,source):
  assert h[6]+40*h[12]==len(b), 'unowned trailing/container bytes'
  payload={i:b[s[4]:s[4]+s[5]]for i,s in enumerate(ss)}
  line=next(i for i,n in enumerate(ns)if n=='.debug_line'and ss[i][5]);raw=payload[line]
- wine_dir=('Z:'+str(source.resolve().parent).replace('/','\\')+'\\').encode()+b'\0';native_dir=(str(source.resolve().parent).replace('/','\\')+'\\').encode()+b'\0';linux_dir=(str(source.resolve().parent)+'/').encode()+b'\0';directory=next((d for d in(wine_dir,native_dir,linux_dir)if raw.count(d)==1),None);assert directory is not None
+ directory=('Z:'+str(source.resolve().parent).replace('/','\\')+'\\').encode()+b'\0';assert raw.count(directory)==1
  at=raw.index(directory);end=at+len(directory);replacement=b'@D1_SOURCE_DIRECTORY@\0';delta=len(directory)-len(replacement)
  # The checkout's lib/include/nitro directory precedes it in include_directories and is just as checkout-dependent.
- wine_nitro=('Z:'+str((source.resolve().parents[1]/'lib/include/nitro').resolve()).replace('/','\\')+'\\').encode()+b'\0';native_nitro=(str(source.resolve().parents[1]).replace('/','\\')+'\\.\\'+'lib\\include\\nitro\\').encode()+b'\0';linux_nitro=(str((source.resolve().parents[1]/'lib/include/nitro').resolve())+'/').encode()+b'\0';nitro=next((n for n in(wine_nitro,native_nitro,linux_nitro)if raw.count(n)==1),None);assert nitro is not None
+ nitro=('Z:'+str((source.resolve().parents[1]/'lib/include/nitro').resolve()).replace('/','\\')+'\\').encode()+b'\0'
  assert raw.count(nitro)==1;nitro_at=raw.index(nitro);nitro_end=nitro_at+len(nitro);nitro_replacement=b'@D1_NITRO_DIRECTORY@\0'
  assert 10<nitro_at<nitro_end<=at and raw[10:nitro_at]==bytes.fromhex('0201ff040c0001010101000000010000')
  line_delta=delta+len(nitro)-len(nitro_replacement)

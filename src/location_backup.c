@@ -37,16 +37,3 @@ void Save_SetPositionToPlayerRoom(SaveData *saveData) {
     Location *position = LocalFieldData_GetCurrentPosition(Save_LocalFieldData_Get(saveData));
     Location_SetToPlayerRoom(position);
 }
-
-static const Location sLocation_ElmsLab = {
-    .mapId    = MAP_NEW_BARK_ELMS_LAB_1F,
-    .warpId   = 0xFFFFFFFF,
-    .x        = 6,
-    .y        = 9,
-    .direction = 0,
-};
-
-void Save_SetPositionToElmsLab(SaveData *saveData) {
-    Location *position = LocalFieldData_GetCurrentPosition(Save_LocalFieldData_Get(saveData));
-    *position = sLocation_ElmsLab;
-}
