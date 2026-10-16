@@ -18,7 +18,7 @@
     }
   },
   "C_base": [
-    "wine",
+    "/workspace/tools/smart_wine.sh",
     "tools/mwccarm/2.0/sp2p3/mwccarm.exe",
     "-DSDK_ARM7",
     "-O4,s",
@@ -76,7 +76,7 @@
     "-MD"
   ],
   "ASM_base": [
-    "wine",
+    "/workspace/tools/smart_wine.sh",
     "tools/mwccarm/2.0/sp2p3/mwasmarm.exe",
     "-DSDK_ARM7",
     "-proc",
@@ -111,8 +111,8 @@
     "-MD"
   ],
   "tool_sha256": {
-    "tools/mwccarm/2.0/sp2p3/mwccarm.exe": "900e6b2ce072b5c178e98d47468f83caa8156eda7fb2e1efa786535b73cf86f2",
-    "tools/mwccarm/2.0/sp2p3/mwasmarm.exe": "4ff886599e66056e11dc42b1b2a9d9134a4178d7fed924bd8ec2a4dc3d68114b"
+    "tools/mwccarm/2.0/sp2p3/mwccarm.exe": "540e7deb5744df49137674eb0e0649df7a7259495028279d862c7cf4b8b26653",
+    "tools/mwccarm/2.0/sp2p3/mwasmarm.exe": "d3ef684481674520e556bedc1dc4b519a13bf72376bd54df681fc8e2eb202ed8"
   },
   "C_headers": [
     "lib/include/ansi_params.h",
@@ -359,7 +359,7 @@
   "modules": {
     "partition.py": "5b4e6250da8d4bedad24de2b3002fede947284b29be8396f6e3c99247b694fc3",
     "runtime_union.py": "0329773c3e386a7e9e463470676780e161c737a7c631b9e24b58eb4113db7a67",
-    "build.py": "dc1faadcb98d7516314dbb784737ed0fd51228b32b7e76c5e8666145d57b0afc",
+    "build.py": "13fba14faa99de0378d2b1cef678fb6bedf67348c956fa872b694ec88c636a51",
     "alarm.mk": "8314b86d5f62a79d262f4d3c7a3f3b636a1c9abb53f2f660c81c160f18e3125f"
   }
 }

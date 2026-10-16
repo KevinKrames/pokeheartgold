@@ -27,7 +27,7 @@ def dep_paths(md,cwd=SUB):
 
 def profile(tokens,kind,c):
  t=shlex.split(tokens) if isinstance(tokens,str)else list(tokens);expected=c[kind+'_base']
- need(len(t)>1 and t[:1]+t[2:]==expected[:1]+expected[2:] and Path(t[1]).resolve()==(ROOT/expected[1]).resolve(),'actual ordered GNU compiler profile mismatch');need(t[0]=='wine','native Wine launcher');exe=Path(t[1]).resolve()
+ need(len(t)>1 and t[:1]+t[2:]==expected[:1]+expected[2:] and Path(t[1]).resolve()==(ROOT/expected[1]).resolve(),'actual ordered GNU compiler profile mismatch');need(t[0]=='wine' or Path(t[0]).resolve()==(ROOT/'tools/smart_wine.sh').resolve(),'native Wine launcher');exe=Path(t[1]).resolve()
  need(exe.is_relative_to(ROOT/'tools/mwccarm/2.0/sp2p3'),'truthful SDK2p3 tool path');pins(c['tool_sha256']);return t
 
 def handler_proof(blob):

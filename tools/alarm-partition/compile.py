@@ -17,7 +17,7 @@ def compile_c(src, out, game="hg", ver="2.0/sp2p2", ipa=None, extra=()):
     src, out = Path(src).resolve(), Path(out).resolve()
     if ipa is None: ipa = not ver.startswith("1.2/")
     gdef = []
-    args = ["wine", str(ROOT / f"tools/mwccarm/{ver}/mwccarm.exe"), *gdef,
+    args = [str(ROOT / "tools/smart_wine.sh"), str(ROOT / f"tools/mwccarm/{ver}/mwccarm.exe"), *gdef,
             "-DSDK_ARM9", "-DSDK_CODE_ARM", "-DSDK_FINALROM",
             "-O4,p", "-sym", "on", "-enum", "int", "-lang", "c99", "-Cpp_exceptions", "off", "-gccext,on",
             "-proc", "arm946e", "-msgstyle", "gcc", "-gccinc", "-i", "./src", "-i", "./include", "-i", "./include/library",

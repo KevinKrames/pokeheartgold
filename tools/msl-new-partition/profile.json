@@ -1,14 +1,14 @@
 {
   "schema": 1,
   "compiler": "tools/mwccarm/2.0/sp2p2/mwccarm.exe",
-  "compiler_sha256": "b1da5a2f191d1cdea3fd078cedc9c504de46609642ae8e44c015014cef5419a7",
+  "compiler_sha256": "7ca611194b3537583b7e197f069f6de26781c83e84dc74a7282b64e79bb68cd6",
   "headers": {
     "lib/include/nitro/types.h": "bc6a942130f6d5643c27a69b6aacf6f9b674fe81b0cc8a5210183df2e2debde4",
     "lib/include/nitro/code32.h": "1b920b5d4420f07164ab0b6d378e8f7f64c1d76341f578baf71cd9584f7987c4"
   },
   "modules": {
     "build.py": "6a55d6bdf6cd6b023bd4d31a2e5ba7f66e0b40323eb0a6e0d6b839151b5ec3c3",
-    "shape.py": "cc26491c69384097da9a1d50c50bc393ed4ae45459d1ea86268a0e45c7a924b2",
+    "shape.py": "48af953691ce1da483224f982fa47da5aa044f7a1404a9fb7e4801faad4d6632",
     "select-scalar.py": "7eae79a99b9a47af9da22075da4d5276878923ca7a6bca0f66ed310cd8be7226",
     "select-array.py": "72fb8a280618686b80b313e00283816e2930c7103b1a4bcffb8b4689580ebea2",
     "scalar-shape.json": "8f0c643e8745aeefed8e3ea4a310974fdfa30125b9e72ac7c89b8acb57f6eab8",
@@ -31,7 +31,7 @@
       ],
       "GNU_CPP_tokens": {
         "heartgold": [
-          "wine",
+          "/workspace/tools/smart_wine.sh",
           "tools/mwccarm/2.0/sp2p2/mwccarm.exe",
           "-DHEARTGOLD",
           "-DGAME_REMASTER=0",
@@ -93,7 +93,7 @@
           "error"
         ],
         "soulsilver": [
-          "wine",
+          "/workspace/tools/smart_wine.sh",
           "tools/mwccarm/2.0/sp2p2/mwccarm.exe",
           "-DSOULSILVER",
           "-DGAME_REMASTER=0",
@@ -171,7 +171,7 @@
       ],
       "GNU_CPP_tokens": {
         "heartgold": [
-          "wine",
+          "/workspace/tools/smart_wine.sh",
           "tools/mwccarm/2.0/sp2p2/mwccarm.exe",
           "-DHEARTGOLD",
           "-DGAME_REMASTER=0",
@@ -233,7 +233,7 @@
           "error"
         ],
         "soulsilver": [
-          "wine",
+          "/workspace/tools/smart_wine.sh",
           "tools/mwccarm/2.0/sp2p2/mwccarm.exe",
           "-DSOULSILVER",
           "-DGAME_REMASTER=0",
