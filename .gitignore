@@ -108,3 +108,13 @@ __pycache__
 .local-tools/
 .venv/
 *.pyc
+
+# KaizoAI metroskrew build artifacts
+# profile.json files contain SHA hashes of the compiler binaries; they change
+# every time metroskrew rebuilds or reinstalls native ELFs.
+tools/*/profile.json
+# Wine wrapper scripts placed by scripts/setup_decomp.sh
+tools/wine
+tools/smart_wine.sh
+# Proprietary NitroSDK tools directory (makerom.exe etc.)
+tools/nitrosdk/
