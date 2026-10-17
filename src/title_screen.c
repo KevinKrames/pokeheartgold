@@ -21,6 +21,7 @@
 #include "main.h"
 #include "math_util.h"
 #include "msgdata.h"
+#include "overlay_36.h"
 #include "overlay_62.h"
 #include "overlay_manager.h"
 #include "screen_fade.h"
@@ -160,7 +161,7 @@ static BOOL TitleScreen_Main(OverlayManager *man, int *state) {
             TitleScreenAnim_Run(&data->animData, data->bgConfig, data->heapID);
             ++data->timer;
             if ((gSystem.newKeys & PAD_BUTTON_A) == PAD_BUTTON_A || (gSystem.newKeys & PAD_BUTTON_START) == PAD_BUTTON_START || gSystem.touchNew) {
-                data->exitMode = TITLESCREEN_EXIT_MENU;
+                data->exitMode = (gSystem.newKeys & PAD_BUTTON_A) ? TITLESCREEN_EXIT_NEW_GAME : TITLESCREEN_EXIT_MENU;
                 GF_SndStartFadeOutBGM(SEQ_NONE, 60);
                 PlayCry(TITLE_SCREEN_SPECIES, 0);
                 GF_SetVolumeBySeqNo(1, 48);
@@ -249,6 +250,9 @@ static BOOL TitleScreen_Exit(OverlayManager *man, int *state) {
         break;
     case TITLESCREEN_EXIT_CLEARSAVE:
         RegisterMainOverlay(FS_OVERLAY_ID_NONE, &gApplication_DeleteSave);
+        break;
+    case TITLESCREEN_EXIT_NEW_GAME:
+        RegisterMainOverlay(FS_OVERLAY_ID(OVY_36), &ov36_App_TitleScreen_NewGameGenderSelect);
         break;
     case TITLESCREEN_EXIT_TIMEOUT:
         Sound_SetScene(SOUND_SCENE_NONE);

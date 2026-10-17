@@ -6,6 +6,7 @@
 #include "overlay_manager.h"
 
 extern const OverlayManagerTemplate gApplication_OakSpeech;
+extern const OverlayManagerTemplate gApplication_OakSpeechGenderSelect;
 
 typedef void (*FieldCommHandlerFunc)();
 typedef u32 (*FieldCommSizeFunc)(void);

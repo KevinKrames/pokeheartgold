@@ -126,6 +126,8 @@ typedef enum OakSpeechMainState {
     OAK_SPEECH_MAIN_STATE_INIT_SHRINK_ANIM_STATE = 124,
     OAK_SPEECH_MAIN_STATE_DELAY_BEFORE_SHRINK_ANIM = 125,
     OAK_SPEECH_MAIN_STATE_RUN_SHRINK_ANIM = 126,
+    OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_SETUP = 127,
+    OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_WAIT_FADE = 128,
 } OakSpeechMainState;
 
 static void OakSpeech_VBlankCB(void *cbArg);
@@ -560,6 +562,13 @@ BOOL OakSpeech_Init(OverlayManager *ovyMan, int *pState) {
     data->frameDelayCounter = 0;
     TextFlags_SetCanTouchSpeedUpPrint(FALSE);
     FontID_Alloc(4, data->heapID);
+    return TRUE;
+}
+
+BOOL OakSpeechGenderSelect_Init(OverlayManager *ovyMan, int *pState) {
+    OakSpeech_Init(ovyMan, pState);
+    OakSpeechData *data = OverlayManager_GetData(ovyMan);
+    data->state = OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_SETUP;
     return TRUE;
 }
 
@@ -1527,6 +1536,27 @@ static BOOL OakSpeech_DoMainTask(OakSpeechData *data) {
     BOOL ret = FALSE;
 
     switch (data->state) {
+    case OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_SETUP:
+        Sound_SetSceneAndPlayBGM(2, SEQ_GS_STARTING2, 1);
+        OakSpeech_SetButtonTutorialScreenLayout(data, 0);
+        OakSpeech_LoadSubScreenBackground(data, 1);
+        OakSpeech_DrawPicOnBgLayer(data, OAK_SPEECH_PIC_OAK, OAK_SPEECH_PIC_NONE);
+        OakSpeech_TouchToAdvanceButtonAction(data, TOUCHTOADVANCE_SHOW);
+        ToggleBgLayer(GF_BG_LYR_MAIN_0, GF_PLANE_TOGGLE_ON);
+        ToggleBgLayer(GF_BG_LYR_MAIN_1, GF_PLANE_TOGGLE_ON);
+        ToggleBgLayer(GF_BG_LYR_MAIN_3, GF_PLANE_TOGGLE_ON);
+        ToggleBgLayer(GF_BG_LYR_SUB_0, GF_PLANE_TOGGLE_ON);
+        ToggleBgLayer(GF_BG_LYR_SUB_3, GF_PLANE_TOGGLE_ON);
+        data->menuData.cursorPos = 0;
+        data->menuData.numOptions = 2;
+        BeginNormalPaletteFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, RGB_BLACK, 6, 1, data->heapID);
+        data->state = OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_WAIT_FADE;
+        break;
+    case OAK_SPEECH_MAIN_STATE_GENDER_SELECT_SHORTCUT_WAIT_FADE:
+        if (IsPaletteFadeFinished() == TRUE) {
+            data->state = OAK_SPEECH_MAIN_STATE_ARE_YOU_A_GENDER;
+        }
+        break;
     case OAK_SPEECH_MAIN_STATE_START_TUTORIAL_MUSIC:
         ToggleBgLayer(GF_BG_LYR_SUB_2, GF_PLANE_TOGGLE_OFF);
         Sound_SetSceneAndPlayBGM(2, SEQ_GS_POKEMON_THEME, 1);

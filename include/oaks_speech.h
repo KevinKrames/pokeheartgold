@@ -9,6 +9,7 @@
 #include "sprite_system.h"
 
 BOOL OakSpeech_Init(OverlayManager *ovyMan, int *pState);
+BOOL OakSpeechGenderSelect_Init(OverlayManager *ovyMan, int *pState);
 BOOL OakSpeech_Main(OverlayManager *ovyMan, int *pState);
 BOOL OakSpeech_Exit(OverlayManager *ovyMan, int *pState);
 

@@ -17,6 +17,7 @@ typedef enum TitleScreenExitMode {
     TITLESCREEN_EXIT_TIMEOUT,
     TITLESCREEN_EXIT_UNUSED,
     TITLESCREEN_EXIT_MIC_TEST,
+    TITLESCREEN_EXIT_NEW_GAME,
 } TitleScreenExitMode;
 
 typedef struct TitleScreenAnimObject {

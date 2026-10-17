@@ -13,6 +13,7 @@
 
 FS_EXTERN_OVERLAY(OVY_53);
 const OverlayManagerTemplate gApplication_OakSpeech = { OakSpeech_Init, OakSpeech_Main, OakSpeech_Exit, FS_OVERLAY_ID(OVY_53) };
+const OverlayManagerTemplate gApplication_OakSpeechGenderSelect = { OakSpeechGenderSelect_Init, OakSpeech_Main, OakSpeech_Exit, FS_OVERLAY_ID(OVY_53) };
 
 static const FieldCommCommand sFieldCommCommands[] = {
     { CommPlayerManager_ReceivePosition, CommPlayerManager_GetPositionSize,         NULL         },

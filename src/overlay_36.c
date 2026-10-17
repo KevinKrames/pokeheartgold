@@ -48,6 +48,7 @@ static BOOL ov36_App_InitGameState_AfterOakSpeech_AppExit(OverlayManager *man, i
 static BOOL ov36_TitleScreen_NewGame_AppInit(OverlayManager *man, int *state);
 static BOOL ov36_TitleScreen_NewGame_AppExec(OverlayManager *man, int *state);
 static BOOL ov36_TitleScreen_NewGame_AppExit(OverlayManager *man, int *state);
+static BOOL ov36_TitleScreen_NewGameGenderSelect_AppExit(OverlayManager *man, int *state);
 static void InitGameStateAfterOakSpeech_Internal(enum HeapID heapID, SaveData *saveData, BOOL set_trainer_id);
 static void Continue_LoadSaveData_HandleError(enum HeapID heapID, SaveData *saveData);
 static void NewGame_InitSaveData(enum HeapID heapID, SaveData *saveData);
@@ -56,6 +57,13 @@ const OverlayManagerTemplate ov36_App_MainMenu_SelectOption_NewGame = {
     .init = ov36_TitleScreen_NewGame_AppInit,
     .exec = ov36_TitleScreen_NewGame_AppExec,
     .exit = ov36_TitleScreen_NewGame_AppExit,
+    .ovy_id = FS_OVERLAY_ID_NONE,
+};
+
+const OverlayManagerTemplate ov36_App_TitleScreen_NewGameGenderSelect = {
+    .init = ov36_TitleScreen_NewGame_AppInit,
+    .exec = ov36_TitleScreen_NewGame_AppExec,
+    .exit = ov36_TitleScreen_NewGameGenderSelect_AppExit,
     .ovy_id = FS_OVERLAY_ID_NONE,
 };
 
@@ -110,6 +118,14 @@ BOOL ov36_TitleScreen_NewGame_AppExit(OverlayManager *man, int *state) {
 #pragma unused(man, state)
     Heap_Destroy(HEAPID_OV36);
     RegisterMainOverlay(FS_OVERLAY_ID_NONE, &gApplication_OakSpeech);
+
+    return TRUE;
+}
+
+static BOOL ov36_TitleScreen_NewGameGenderSelect_AppExit(OverlayManager *man, int *state) {
+#pragma unused(man, state)
+    Heap_Destroy(HEAPID_OV36);
+    RegisterMainOverlay(FS_OVERLAY_ID_NONE, &gApplication_OakSpeechGenderSelect);
 
     return TRUE;
 }
