@@ -1,5 +1,6 @@
-titledemo_00000001.NCGR
-titledemo_00000003.NCGR
+# IronMON patched title graphics are tracked directly (not rebuilt from PNG)
+!titledemo_00000001.NCGR
+!titledemo_00000003.NCGR
 titledemo_00000015.NCGR
 titledemo_00000034.NCGR
 titledemo_00000036.NCGR
