@@ -1,0 +1,4 @@
+# Prebuilt ARM9 binary from HGPyroIronMON V0.2.2a NoLimiter.
+# Not committed due to size. Generate with:
+#   python3 scripts/extract_ironmon_arm9.py
+ironmon_arm9.bin

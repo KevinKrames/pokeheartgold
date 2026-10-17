@@ -146,7 +146,23 @@ clean_soulsilver:   ; @$(MAKE) GAME_VERSION=SOULSILVER clean
 
 compare:             compare_heartgold
 
-.PHONY: heartgold soulsilver compare compare_heartgold compare_soulsilver clean_heartgold clean_soulsilver
+# IronMON: build the ROM using the prebuilt IronMON ARM9 binary.
+# This replaces the source-compiled ARM9 (which cannot reproduce the IronMON
+# binary byte-for-byte due to recompilation) with the prebuilt binary extracted
+# from the reference ROM, while keeping all NitroFS content built from source.
+IRONMON_ARM9     := prebuilt/ironmon_arm9.bin
+IRONMON_ROM      := $(ROM:.nds=_ironmon.nds)
+IRONMON_ROMSPEC  := $(ROMSPEC)
+
+.PHONY: ironmon
+
+ironmon: filesystem main sub $(BANNER) $(IRONMON_ARM9)
+	@echo "=== IronMON: injecting prebuilt ARM9 into $(IRONMON_ROM) ==="
+	cp $(IRONMON_ARM9) $(SBIN_LZ)
+	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -DNITROFS_FILES="$(NITROFS_FILES:files/%=%)" -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $(IRONMON_ROMSPEC) $(IRONMON_ROM)
+	$(FIXROM) $(IRONMON_ROM) --secure-crc $(SECURE_CRC) --game-code $(GAME_CODE)
+
+.PHONY: heartgold soulsilver compare compare_heartgold compare_soulsilver clean_heartgold clean_soulsilver ironmon
 
 # Fork progress: first refresh and verify the selected ROM, then report.
 .PHONY: progress
