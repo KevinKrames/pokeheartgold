@@ -5,6 +5,11 @@
 
 	.option alignment off
 
+	.macro step type, length=1
+	.short \type
+	.short \length
+	.endm
+
 	.macro FaceNorth length=1
 	.short MOVEMENT_FACE_UP
 	.short \length

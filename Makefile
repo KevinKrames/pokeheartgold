@@ -156,7 +156,7 @@ IRONMON_ROMSPEC  := $(ROMSPEC)
 
 .PHONY: ironmon
 
-ironmon: filesystem main sub $(BANNER) $(IRONMON_ARM9)
+ironmon: filesystem sub $(BANNER) $(IRONMON_ARM9)
 	@echo "=== IronMON: injecting prebuilt ARM9 into $(IRONMON_ROM) ==="
 	cp $(IRONMON_ARM9) $(SBIN_LZ)
 	$(WINE) $(MAKEROM) $(MAKEROM_FLAGS) -DBUILD_DIR=$(BUILD_DIR) -DNITROFS_FILES="$(NITROFS_FILES:files/%=%)" -DTITLE_NAME="$(TITLE_NAME)" -DBNR="$(BANNER)" -DHEADER_TEMPLATE="$(HEADER_TEMPLATE)" $(IRONMON_ROMSPEC) $(IRONMON_ROM)

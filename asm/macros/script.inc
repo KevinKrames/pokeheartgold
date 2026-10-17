@@ -14,6 +14,10 @@
 	.short SCRDEF_END
 	.endm
 
+	.macro scrdef_end
+	.short SCRDEF_END
+	.endm
+
 	; Dummy command
 	.macro Noop
 	.short 0
@@ -1129,7 +1133,7 @@
 	.short \var
 	.endm
 
-	.macro SetAvatarBits arg0
+	.macro SetAvatarBits arg0=0
 	.short 188
 	.short \arg0
 	.endm
