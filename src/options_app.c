@@ -825,6 +825,11 @@ static void OptionsApp_UpdateMenuEntry(OptionsApp_Data *data, u16 menuEntryId) {
 }
 
 static void OptionsApp_UpdateMenuEntryCarousel(OptionsApp_Data *data, u32 menuEntryId, OptionsApp_MenuEntry *menuEntry, s32 offset) {
+    if (menuEntryId == MENU_ENTRY_BATTLE_STYLE) {
+        menuEntry->value = 1;
+        return;
+    }
+
     if (menuEntryId == MENU_ENTRY_FRAME) {
         if (offset == -1) {
             Sprite_SetAnimCtrlSeq(data->sprites[5], 1);
@@ -944,6 +949,9 @@ static void OptionsApp_HandleInput(OptionsApp_Data *data) {
                 OptionsApp_UpdateMenuEntryCarousel(data, data->currentMenuEntryId, entry, 1);
             } else {
                 entry->value = value;
+            }
+            if (data->currentMenuEntryId == MENU_ENTRY_BATTLE_STYLE) {
+                entry->value = 1;
             }
             OptionsApp_UpdateMenuEntry(data, data->currentMenuEntryId);
             OptionsApp_UpdateSelectionHighlight(data, data->currentMenuEntryId);

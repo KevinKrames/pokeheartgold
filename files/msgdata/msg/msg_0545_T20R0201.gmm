@@ -2,23 +2,23 @@
 <body language="English">
 	<row id="msg_0545_T20R0201_00000" index="0">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Hi, {STRVAR_1 3, 0, 0}!\nYou’re finally awake.\fYour friend Lyra was just here.\rShe was playing hide-and-seek with\nher MARILL.\rOh, I almost forgot! Our acquaintance,\nProfessor Elm, was looking for you.\rHe said he had a favor to ask of you.\rYou know where the lab is, right?\nIt’s right next door to us.\rBy the way, do you have everything\nyou need to go out?\fHere, use this Bag to carry things...\r</language>
+		<language name="English">Here’s your Bag.\n</language>
 	</row>
 	<row id="msg_0545_T20R0201_00001" index="1">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Hi, {STRVAR_1 3, 0, 0}!\nYou’re finally awake.\fYour friend Ethan was just here.\rHe was playing hide-and-seek with\nhis MARILL.\rOh, I almost forgot! Our acquaintance,\nProfessor Elm, was looking for you.\rHe said he had a favor to ask of you.\rYou know where the lab is, right?\nIt’s right next door to us.\rBy the way, do you have everything\nyou need to go out?\fHere, use this Bag to carry things...\r</language>
+		<language name="English">Hi, {STRVAR_1 3, 0, 0}!\nYou’re finally awake.\fYour friend Ethan was just here.\rHe was playing hide-and-seek with\nhis MARILL.\rOh, I almost forgot! Our acquaintance,\nProfessor Elm, was looking for you.\rHe said he had a favor to ask of you.\rYou know where the lab is, right?\nWeren’t you there recently?\rBy the way, do you have everything\nyou need to go out?\fHere, use this Bag to carry things...\r</language>
 	</row>
 	<row id="msg_0545_T20R0201_00002" index="2">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">This is your Trainer Card...\r</language>
+		<language name="English">This is your Trainer Card...\n</language>
 	</row>
 	<row id="msg_0545_T20R0201_00003" index="3">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Here you can save a record of\nyour progress...\r</language>
+		<language name="English">Here you can save a record of\nyour progress...\n</language>
 	</row>
 	<row id="msg_0545_T20R0201_00004" index="4">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">These are also rather helpful...\r</language>
+		<language name="English">These are also rather helpful...\n</language>
 	</row>
 	<row id="msg_0545_T20R0201_00005" index="5">
 		<attribute name="window_context_name">used</attribute>
@@ -30,7 +30,7 @@
 	</row>
 	<row id="msg_0545_T20R0201_00007" index="7">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Oh! {STRVAR_1 3, 0, 0}!\nThat’s a cute Pokémon you have.\rProfessor Elm must have given it\nto you?\rOh, Professor Elm has a task for you,\nyou say?\fWhat kind of task?\r...\rI see. That sounds a little difficult.\rBut when someone makes that kind of\nrequest of you, it must be important!\rOh, that’s right!\nI completely forgot!\rYour Pokégear came back from the\nrepair shop!\rHere you go!\r</language>
+		<language name="English">Here’s your Pokégear.\n</language>
 	</row>
 	<row id="msg_0545_T20R0201_00008" index="8">
 		<attribute name="window_context_name">used</attribute>
@@ -38,15 +38,15 @@
 	</row>
 	<row id="msg_0545_T20R0201_00009" index="9">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">The Pokémon Gear...\nor Pokégear, as it’s often called,\fis what every Trainer should have.\r</language>
+		<language name="English">Good luck on the run {STRVAR_1 3, 0, 0}!\r</language>
 	</row>
 	<row id="msg_0545_T20R0201_00010" index="10">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Guess what?\nYou can use the Pokégear to make a\fphone call, too.\fDo you remember how? {YESNO 0}</language>
+		<language name="English">Do you know how to use a Pokégear? {YESNO 0}</language>
 	</row>
 	<row id="msg_0545_T20R0201_00011" index="11">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Just power on the Pokégear and\ntouch the telephone button, OK?\r</language>
+		<language name="English">Neat, guess you’re ready to leave.\r</language>
 	</row>
 	<row id="msg_0545_T20R0201_00012" index="12">
 		<attribute name="window_context_name">used</attribute>
@@ -58,7 +58,7 @@
 	</row>
 	<row id="msg_0545_T20R0201_00014" index="14">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">What’s wrong?\rDid you forget how to get to\nMr. Pokémon’s house?\rGo north on Route 30.\nTake care, dear.</language>
+		<language name="English">Thank you for talking to me before you\nhead out on your journey. Take care!\r</language>
 	</row>
 	<row id="msg_0545_T20R0201_00015" index="15">
 		<attribute name="window_context_name">used</attribute>

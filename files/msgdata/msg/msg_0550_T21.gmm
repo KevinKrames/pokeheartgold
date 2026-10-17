@@ -54,15 +54,15 @@
 	</row>
 	<row id="msg_0550_T21_00013" index="13">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">...\rYou got a Pokémon at the Lab.\nWhat a waste.\rThat’s a Pokémon that’s too good for\na wimp like you.\r...\nDon’t you get what I’m saying?\rWell, I too have a good Pokémon.\nI’ll show you what I mean!\r</language>
+		<language name="English">{SIZE 200}IT’S RESET TIME!{SIZE 100}\r</language>
 	</row>
 	<row id="msg_0550_T21_00014" index="14">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">...\rDo you want to know who I am?\n...\rI’m going to be the world’s greatest\nPokémon Trainer.\r</language>
+		<language name="English">...Pathetic.\r</language>
 	</row>
 	<row id="msg_0550_T21_00015" index="15">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Give it back!\nThat’s my Trainer Card!\rOh no!\nYou saw my name...\r</language>
+		<language name="English">Oh no!\nYou saw my name...\r</language>
 	</row>
 	<row id="msg_0550_T21_00016" index="16">
 		<attribute name="window_context_name">used</attribute>
@@ -99,5 +99,17 @@
 	<row id="msg_0550_T21_00024" index="24">
 		<attribute name="window_context_name">used</attribute>
 		<language name="English">Guide Gent’s House\nFull-of-Energy, High-Speed Old Man</language>
+	</row>
+	<row id="msg_0550_T21_00025" index="25">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Greetings citizen. What? You misread\nthe suspect’s name? What was it then?\r</language>
+	</row>
+	<row id="msg_0550_T21_00026" index="26">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Currently on my lunch break, but I\ndid see a suspicious person heading\fto Professor Elm’s lab.\r</language>
+	</row>
+	<row id="msg_0550_T21_00027" index="27">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">So {STRVAR_1 3, 1, 0} was\nhis actual name.\r</language>
 	</row>
 </body>

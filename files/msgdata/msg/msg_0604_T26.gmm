@@ -2,7 +2,7 @@
 <body language="English">
 	<row id="msg_0604_T26_00000" index="0">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">...\rYou again?\rThere’s no need to be alert.\nI don’t bother with wimps like you.\rSpeaking of weaklings, the city’s\nGym Leader isn’t here, and\fis supposedly taking care of a\fsick Pokémon at the Lighthouse.\rHumph! Boo-hoo!\nJust let sick Pokémon go!\rA Pokémon that can’t battle\nis worthless!\rWhy don’t you go train at\nthe Lighthouse?\rWho knows? It may make you a bit\nof a better Trainer!\r</language>
+		<language name="English">...Get good scrub.\r</language>
 	</row>
 	<row id="msg_0604_T26_00001" index="1">
 		<attribute name="window_context_name">used</attribute>

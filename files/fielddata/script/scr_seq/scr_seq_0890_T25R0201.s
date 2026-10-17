@@ -1,61 +1,43 @@
 #include "constants/scrcmd.h"
-#include "fielddata/script/scr_seq/event_T25R0201.h"
-#include "msgdata/msg/msg_0584_T25R0201.h"
+#include "fielddata\script\scr_seq\event_T25R0201.h"
+#include "msgdata\msg\msg_0584_T25R0201.h"
 	.include "asm/macros/script.inc"
 
 	.rodata
 
-	ScrDef scr_seq_T25R0201_000
-	ScrDef scr_seq_T25R0201_001
-	ScrDefEnd
+	scrdef scr_seq_T25R0201_000
+	scrdef scr_seq_T25R0201_001
+	scrdef_end
 
 scr_seq_T25R0201_000:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
 	FacePlayer
-	GoToIfSet FLAG_UNK_089, _0081
-	NPCMsg msg_0584_T25R0201_00000
-	TouchscreenMenuHide
-	GetMenuChoice VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfEq _0042
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _008C
+	GoTo _0066
+
+scr_seq_T25R0201_001:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0584_T25R0201_00005
+	WaitButton
+	CloseMsg
+	ReleaseAll
 	End
 
-_0042:
-	NPCMsg msg_0584_T25R0201_00001
-	GetMenuChoice VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfEq _0065
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _008C
-	End
-
-_0065:
-	GiveItemNoCheck ITEM_BICYCLE, 1
+	; 0x002B
+	.byte 0x2d, 0x00, 0x03, 0x32, 0x00
+	.byte 0x35, 0x00, 0x61, 0x00, 0x02, 0x00, 0x2d, 0x00, 0x01, 0xec, 0x02, 0x0c, 0x80, 0x11, 0x00, 0x0c
+	.byte 0x80, 0x00, 0x00, 0x1c, 0x00, 0x01, 0x1c, 0x00, 0x00, 0x00, 0x11, 0x00, 0x0c, 0x80, 0x01, 0x00
+	.byte 0x1c, 0x00, 0x01, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00, 0x2d, 0x00, 0x04, 0x32, 0x00, 0x35, 0x00
+	.byte 0xeb, 0x02, 0x61, 0x00, 0x02, 0x00
+_0066:
+	SetVar VAR_SPECIAL_x8004, 450
+	SetVar VAR_SPECIAL_x8005, 1
+	CallStd std_give_item_verbose
 	SetFlag FLAG_UNK_089
 	CloseMsg
 	TouchscreenMenuShow
 	ReleaseAll
-	End
-
-_0081:
-	NPCMsg msg_0584_T25R0201_00003
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
-
-_008C:
-	NPCMsg msg_0584_T25R0201_00004
-	WaitButton
-	CloseMsg
-	TouchscreenMenuShow
-	ReleaseAll
-	End
-
-scr_seq_T25R0201_001:
-	SimpleNPCMsg msg_0584_T25R0201_00005
 	End
 	.balign 4, 0

@@ -1,210 +1,40 @@
 #include "constants/scrcmd.h"
-#include "fielddata/script/scr_seq/event_D37R0103.h"
-#include "msgdata/msg/msg_0118_D37R0103.h"
+#include "fielddata\script\scr_seq\event_D37R0103.h"
+#include "msgdata\msg\msg_0118_D37R0103.h"
 	.include "asm/macros/script.inc"
 
 	.rodata
 
-	ScrDef scr_seq_D37R0103_000
-	ScrDef scr_seq_D37R0103_001
-	ScrDef scr_seq_D37R0103_002
-	ScrDef scr_seq_D37R0103_003
-	ScrDefEnd
-
-scr_seq_D37R0103_003:
-	MakeObjectVisible obj_D37R0103_stop
-	MakeObjectVisible obj_D37R0103_stop_2
-	MakeObjectVisible obj_D37R0103_stop_3
-	MakeObjectVisible obj_D37R0103_stop_4
-	MakeObjectVisible obj_D37R0103_stop_5
-	MakeObjectVisible obj_D37R0103_stop_6
-	MakeObjectVisible obj_D37R0103_stop_7
-	MakeObjectVisible obj_D37R0103_stop_8
-	MakeObjectVisible obj_D37R0103_stop_9
-	GoToIfSet FLAG_UNK_096, _0059
-	GoToIfSet FLAG_UNK_097, _01BE
-	GoToIfSet FLAG_UNK_098, _0207
-	End
-
-_0059:
-	GoToIfSet FLAG_UNK_097, _00B3
-	GoToIfSet FLAG_UNK_098, _013E
-	ChangeObjectMovement 0, 9
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
-	MovePersonFacing obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH
-	End
-
-_00B3:
-	GoToIfSet FLAG_UNK_098, _02BF
-	ChangeObjectMovement 0, 9
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
-	MovePersonFacing obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST
-	MovePersonFacing obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH
-	End
-
-_013E:
-	ChangeObjectMovement 0, 9
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
-	MovePersonFacing obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST
-	MovePersonFacing obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH
-	End
-
-_01BE:
-	GoToIfSet FLAG_UNK_098, _0245
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST
-	MovePersonFacing obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH
-	End
-
-_0207:
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST
-	MovePersonFacing obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH
-	End
-
-_0245:
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST
-	MovePersonFacing obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST
-	MovePersonFacing obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH
-	End
-
-_02BF:
-	ChangeObjectMovement 0, 9
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke, 19, 0, 16, DIR_SOUTH
-	MovePersonFacing obj_D37R0103_babyboy1_5_3, 19, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop, 19, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_2, 20, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_3, 20, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_2, 3, 0, 14, DIR_WEST
-	MovePersonFacing obj_D37R0103_babyboy1_5_2, 1, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_4, 1, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_5, 2, 0, 13, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_6, 2, 0, 14, DIR_NORTH
-	MovePersonFacing obj_D37R0103_tsure_poke_static_machoke_3, 7, 0, 17, DIR_EAST
-	MovePersonFacing obj_D37R0103_babyboy1_5, 8, 0, 18, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_7, 8, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_8, 9, 0, 17, DIR_NORTH
-	MovePersonFacing obj_D37R0103_stop_9, 9, 0, 18, DIR_NORTH
-	End
+	scrdef scr_seq_D37R0103_000
+	scrdef scr_seq_D37R0103_001
+	scrdef scr_seq_D37R0103_002
+	scrdef scr_seq_D37R0103_003
+	scrdef_end
 
 scr_seq_D37R0103_000:
-	GoToIfSet FLAG_UNK_096, _03C9
+	SetFlag FLAG_UNK_096
+	CheckFlag FLAG_UNK_096
+	GoToIf eq, _00DF
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
 	NPCMsg msg_0118_D37R0103_00000
 	CloseMsg
-	ApplyMovement obj_D37R0103_tsure_poke_static_machoke, _0504
-	ApplyMovement obj_D37R0103_babyboy1_5_3, _0504
-	ApplyMovement obj_D37R0103_stop, _0504
-	ApplyMovement obj_D37R0103_stop_2, _0504
-	ApplyMovement obj_D37R0103_stop_3, _0504
+	ApplyMovement 1, _0500
+	ApplyMovement 7, _0500
+	ApplyMovement 9, _0500
+	ApplyMovement 10, _0500
+	ApplyMovement 11, _0500
 	WaitMovement
 	SetFlag FLAG_UNK_096
 	ChangeObjectMovement 0, 9
 	ReleaseAll
 	End
 
-_03C9:
-	SimpleNPCMsg msg_0118_D37R0103_00001
-	End
-
 scr_seq_D37R0103_001:
 	GetPersonCoords 4, VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 15
-	GoToIfNe _03FD
-	GoTo _041C
-
-_03F7:
-	GoTo _041C
-
-_03FD:
-	Compare VAR_TEMP_x4001, 16
-	GoToIfNe _0416
-	GoTo _0483
-
-_0410:
-	GoTo _041C
-
-_0416:
-	GoTo _03C9
-
-_041C:
-	GoToIfSet FLAG_UNK_097, _03C9
-	GetObjectFacing 4, VAR_TEMP_x4000
-	Compare VAR_TEMP_x4000, 0
-	GoToIfNe _0440
-	GoTo _0446
-
-_0440:
-	GoTo _03C9
-
-_0446:
-	PlaySE SEQ_SE_DP_SELECT
-	LockAll
-	NPCMsg msg_0118_D37R0103_00000
-	CloseMsg
-	ApplyMovement obj_D37R0103_tsure_poke_static_machoke_2, _050C
-	ApplyMovement obj_D37R0103_babyboy1_5_2, _050C
-	ApplyMovement obj_D37R0103_stop_4, _050C
-	ApplyMovement obj_D37R0103_stop_5, _050C
-	ApplyMovement obj_D37R0103_stop_6, _050C
-	WaitMovement
-	SetFlag FLAG_UNK_097
-	ReleaseAll
-	End
-
-_0483:
-	GoToIfSet FLAG_UNK_098, _03C9
-	GetObjectFacing 4, VAR_TEMP_x4000
-	Compare VAR_TEMP_x4000, 1
-	GoToIfNe _04A7
-	GoTo _04AD
-
-_04A7:
-	GoTo _03C9
-
-_04AD:
-	PlaySE SEQ_SE_DP_SELECT
-	LockAll
-	NPCMsg msg_0118_D37R0103_00000
-	CloseMsg
-	ApplyMovement obj_D37R0103_tsure_poke_static_machoke_3, _0514
-	ApplyMovement obj_D37R0103_babyboy1_5, _0514
-	ApplyMovement obj_D37R0103_stop_7, _0514
-	ApplyMovement obj_D37R0103_stop_8, _0514
-	ApplyMovement obj_D37R0103_stop_9, _0514
-	WaitMovement
-	SetFlag FLAG_UNK_098
-	ReleaseAll
-	End
+	CompareVarToValue VAR_TEMP_x4001, 15
+	GoToIf ne, _00F2
+	GoTo _0105
 
 scr_seq_D37R0103_002:
 	PlaySE SEQ_SE_DP_SELECT
@@ -217,18 +47,206 @@ scr_seq_D37R0103_002:
 	ReleaseAll
 	End
 
-	.balign 4, 0
-_0504:
-	WalkSlowSouth 2
+scr_seq_D37R0103_003:
+	MakeObjectVisible 9
+	MakeObjectVisible 10
+	MakeObjectVisible 11
+	MakeObjectVisible 12
+	MakeObjectVisible 13
+	MakeObjectVisible 14
+	MakeObjectVisible 15
+	MakeObjectVisible 16
+	MakeObjectVisible 17
+	CheckFlag FLAG_UNK_096
+	GoToIf eq, _012D
+	CheckFlag FLAG_UNK_097
+	GoToIf eq, _0187
+	CheckFlag FLAG_UNK_098
+	GoToIf eq, _01D0
+	End
+
+_00DF:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0118_D37R0103_00001
+	WaitButton
+	CloseMsg
+	ReleaseAll
+	End
+
+_00F2:
+	CompareVarToValue VAR_TEMP_x4001, 16
+	GoToIf ne, _020E
+	GoTo _0214
+
+_0105:
+	SetFlag FLAG_UNK_097
+	CheckFlag FLAG_UNK_097
+	GoToIf eq, _00DF
+	GetObjectFacing 4, VAR_TEMP_x4000
+	CompareVarToValue VAR_TEMP_x4000, 0
+	GoToIf ne, _0238
+	GoTo _023E
+
+_012D:
+	CheckFlag FLAG_UNK_097
+	GoToIf eq, _027B
+	CheckFlag FLAG_UNK_098
+	GoToIf eq, _0306
+	ChangeObjectMovement 0, 9
+	MovePersonFacing 1, 19, 0, 16, DIR_SOUTH
+	MovePersonFacing 7, 19, 0, 18, DIR_NORTH
+	MovePersonFacing 9, 19, 0, 17, DIR_NORTH
+	MovePersonFacing 10, 20, 0, 17, DIR_NORTH
+	MovePersonFacing 11, 20, 0, 18, DIR_NORTH
+	End
+
+_0187:
+	CheckFlag FLAG_UNK_098
+	GoToIf eq, _0386
+	MovePersonFacing 2, 3, 0, 14, DIR_WEST
+	MovePersonFacing 6, 1, 0, 14, DIR_NORTH
+	MovePersonFacing 12, 1, 0, 13, DIR_NORTH
+	MovePersonFacing 13, 2, 0, 13, DIR_NORTH
+	MovePersonFacing 14, 2, 0, 14, DIR_NORTH
+	End
+
+_01D0:
+	MovePersonFacing 3, 7, 0, 17, DIR_EAST
+	MovePersonFacing 5, 8, 0, 18, DIR_NORTH
+	MovePersonFacing 15, 8, 0, 17, DIR_NORTH
+	MovePersonFacing 16, 9, 0, 17, DIR_NORTH
+	MovePersonFacing 17, 9, 0, 18, DIR_NORTH
+	End
+
+_020E:
+	GoTo _00DF
+
+_0214:
+	CheckFlag FLAG_UNK_098
+	GoToIf eq, _00DF
+	GetObjectFacing 4, VAR_TEMP_x4000
+	CompareVarToValue VAR_TEMP_x4000, 1
+	GoToIf ne, _0400
+	GoTo _0406
+
+_0238:
+	GoTo _00DF
+
+_023E:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	NPCMsg msg_0118_D37R0103_00000
+	CloseMsg
+	ApplyMovement 2, _0508
+	ApplyMovement 6, _0508
+	ApplyMovement 12, _0508
+	ApplyMovement 13, _0508
+	ApplyMovement 14, _0508
+	WaitMovement
+	SetFlag FLAG_UNK_097
+	ReleaseAll
+	End
+
+_027B:
+	CheckFlag FLAG_UNK_098
+	GoToIf eq, _0443
+	ChangeObjectMovement 0, 9
+	MovePersonFacing 1, 19, 0, 16, DIR_SOUTH
+	MovePersonFacing 7, 19, 0, 18, DIR_NORTH
+	MovePersonFacing 9, 19, 0, 17, DIR_NORTH
+	MovePersonFacing 10, 20, 0, 17, DIR_NORTH
+	MovePersonFacing 11, 20, 0, 18, DIR_NORTH
+	MovePersonFacing 2, 3, 0, 14, DIR_WEST
+	MovePersonFacing 6, 1, 0, 14, DIR_NORTH
+	MovePersonFacing 12, 1, 0, 13, DIR_NORTH
+	MovePersonFacing 13, 2, 0, 13, DIR_NORTH
+	MovePersonFacing 14, 2, 0, 14, DIR_NORTH
+	End
+
+_0306:
+	ChangeObjectMovement 0, 9
+	MovePersonFacing 1, 19, 0, 16, DIR_SOUTH
+	MovePersonFacing 7, 19, 0, 18, DIR_NORTH
+	MovePersonFacing 9, 19, 0, 17, DIR_NORTH
+	MovePersonFacing 10, 20, 0, 17, DIR_NORTH
+	MovePersonFacing 11, 20, 0, 18, DIR_NORTH
+	MovePersonFacing 3, 7, 0, 17, DIR_EAST
+	MovePersonFacing 5, 8, 0, 18, DIR_NORTH
+	MovePersonFacing 15, 8, 0, 17, DIR_NORTH
+	MovePersonFacing 16, 9, 0, 17, DIR_NORTH
+	MovePersonFacing 17, 9, 0, 18, DIR_NORTH
+	End
+
+_0386:
+	MovePersonFacing 2, 3, 0, 14, DIR_WEST
+	MovePersonFacing 6, 1, 0, 14, DIR_NORTH
+	MovePersonFacing 12, 1, 0, 13, DIR_NORTH
+	MovePersonFacing 13, 2, 0, 13, DIR_NORTH
+	MovePersonFacing 14, 2, 0, 14, DIR_NORTH
+	MovePersonFacing 3, 7, 0, 17, DIR_EAST
+	MovePersonFacing 5, 8, 0, 18, DIR_NORTH
+	MovePersonFacing 15, 8, 0, 17, DIR_NORTH
+	MovePersonFacing 16, 9, 0, 17, DIR_NORTH
+	MovePersonFacing 17, 9, 0, 18, DIR_NORTH
+	End
+
+_0400:
+	GoTo _00DF
+
+_0406:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	NPCMsg msg_0118_D37R0103_00000
+	CloseMsg
+	ApplyMovement 3, _0510
+	ApplyMovement 5, _0510
+	ApplyMovement 15, _0510
+	ApplyMovement 16, _0510
+	ApplyMovement 17, _0510
+	WaitMovement
+	SetFlag FLAG_UNK_098
+	ReleaseAll
+	End
+
+_0443:
+	ChangeObjectMovement 0, 9
+	MovePersonFacing 1, 19, 0, 16, DIR_SOUTH
+	MovePersonFacing 7, 19, 0, 18, DIR_NORTH
+	MovePersonFacing 9, 19, 0, 17, DIR_NORTH
+	MovePersonFacing 10, 20, 0, 17, DIR_NORTH
+	MovePersonFacing 11, 20, 0, 18, DIR_NORTH
+	MovePersonFacing 2, 3, 0, 14, DIR_WEST
+	MovePersonFacing 6, 1, 0, 14, DIR_NORTH
+	MovePersonFacing 12, 1, 0, 13, DIR_NORTH
+	MovePersonFacing 13, 2, 0, 13, DIR_NORTH
+	MovePersonFacing 14, 2, 0, 14, DIR_NORTH
+	MovePersonFacing 3, 7, 0, 17, DIR_EAST
+	MovePersonFacing 5, 8, 0, 18, DIR_NORTH
+	MovePersonFacing 15, 8, 0, 17, DIR_NORTH
+	MovePersonFacing 16, 9, 0, 17, DIR_NORTH
+	MovePersonFacing 17, 9, 0, 18, DIR_NORTH
+	End
+
+	; 0x04FF
+	.byte 0x00
+
+_0500:
+
+	; 0x0500
+	step 9, 2
 	EndMovement
 
-	.balign 4, 0
-_050C:
-	WalkSlowWest 2
+_0508:
+
+	; 0x0508
+	step 10, 2
 	EndMovement
 
-	.balign 4, 0
-_0514:
-	WalkSlowEast 2
+_0510:
+
+	; 0x0510
+	step 11, 2
 	EndMovement
 	.balign 4, 0

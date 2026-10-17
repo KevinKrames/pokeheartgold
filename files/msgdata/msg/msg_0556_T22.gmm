@@ -54,19 +54,19 @@
 	</row>
 	<row id="msg_0556_T22_00013" index="13">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Me oh my...\nThat Egg must be...!\r</language>
+		<language name="English">Nice egg...\n</language>
 	</row>
 	<row id="msg_0556_T22_00014" index="14">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">I see...\nSo it was handed from Mr. Pokémon to\fProfessor Elm, then from Professor Elm\fto you.\rNow I get it...\r</language>
+		<language name="English">Shame that it will only be an HM Friend\n</language>
 	</row>
 	<row id="msg_0556_T22_00015" index="15">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">That Egg is truly an important Egg.\nPlease do take good care of it for me.\rIs that understood?\r</language>
+		<language name="English">So...</language>
 	</row>
 	<row id="msg_0556_T22_00016" index="16">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">I am counting on you.\r</language>
+		<language name="English">{SIZE 200}BYE!!{SIZE 100}\r</language>
 	</row>
 	<row id="msg_0556_T22_00017" index="17">
 		<attribute name="window_context_name">used</attribute>
@@ -111,5 +111,41 @@
 	<row id="msg_0556_T22_00027" index="27">
 		<attribute name="window_context_name">used</attribute>
 		<language name="English">Did you know that Pokégear allows you\nto put marks and memos on its Map?\rI’d love to have one of those\nPokégears, but my mom won’t let me.</language>
+	</row>
+	<row id="msg_0556_T22_00028" index="28">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hey there, I heard that you want\nto rename a Pokémon? {YESNO 0}</language>
+	</row>
+	<row id="msg_0556_T22_00029" index="29">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Alright which Pokémon is it\ngonna be?</language>
+	</row>
+	<row id="msg_0556_T22_00030" index="30">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it? Hmm...\nThat is a decent nickname!\rBut, I can give it a nicer name?\nHow about it? {YESNO 0}</language>
+	</row>
+	<row id="msg_0556_T22_00031" index="31">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK, then. What shall the new\nnickname be?\r</language>
+	</row>
+	<row id="msg_0556_T22_00032" index="32">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done!\nHow about that?\rFrom now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt is a better name than before,\nisn’t it?\fGood for you!</language>
+	</row>
+	<row id="msg_0556_T22_00033" index="33">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ah, good. I see.\nDo come visit again if you change\fyour mind.</language>
+	</row>
+	<row id="msg_0556_T22_00034" index="34">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done! From now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt looks no different from before?\nThat’s just you!\fThis is vastly superior!\fHow fortunate for you!</language>
+	</row>
+	<row id="msg_0556_T22_00035" index="35">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it?\nThat is a truly impeccable nickname!\rTake good care of {STRVAR_1 1, 0, 0}!</language>
+	</row>
+	<row id="msg_0556_T22_00036" index="36">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Now, now.\nThat is merely an Egg!</language>
 	</row>
 </body>

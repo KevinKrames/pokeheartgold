@@ -1,15 +1,16 @@
 #include "constants/scrcmd.h"
-#include "fielddata/script/scr_seq/event_T28PC0101.h"
-#include "msgdata/msg/msg_0624_T28PC0101.h"
+#include "fielddata\script\scr_seq\event_T28PC0101.h"
+#include "msgdata\msg\msg_0624_T28PC0101.h"
 	.include "asm/macros/script.inc"
 
 	.rodata
 
-	ScrDef scr_seq_T28PC0101_000
-	ScrDef scr_seq_T28PC0101_001
-	ScrDef scr_seq_T28PC0101_002
-	ScrDef scr_seq_T28PC0101_003
-	ScrDefEnd
+	scrdef scr_seq_T28PC0101_000
+	scrdef scr_seq_T28PC0101_001
+	scrdef scr_seq_T28PC0101_002
+	scrdef scr_seq_T28PC0101_003
+	scrdef scr_seq_T28PC0101_004
+	scrdef_end
 
 scr_seq_T28PC0101_000:
 	SetVar VAR_SPECIAL_x8007, 2
@@ -17,14 +18,37 @@ scr_seq_T28PC0101_000:
 	End
 
 scr_seq_T28PC0101_001:
-	SimpleNPCMsg msg_0624_T28PC0101_00000
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0624_T28PC0101_00000
+	WaitButton
+	CloseMsg
+	ReleaseAll
 	End
 
 scr_seq_T28PC0101_002:
-	SimpleNPCMsg msg_0624_T28PC0101_00001
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0624_T28PC0101_00001
+	WaitButton
+	CloseMsg
+	ReleaseAll
 	End
 
 scr_seq_T28PC0101_003:
-	SimpleNPCMsg msg_0624_T28PC0101_00002
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0624_T28PC0101_00002
+	WaitButton
+	CloseMsg
+	ReleaseAll
+	End
+
+scr_seq_T28PC0101_004:
+	SetVar VAR_SPECIAL_x8007, 0
+	CallStd 2072
 	End
 	.balign 4, 0

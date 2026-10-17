@@ -71,14 +71,14 @@
   ],
   "coords": [
     {
-      "scriptId": "_EV_scr_seq_R31R0101_000 + 1",
+      "scriptId": 1,
       "x": 5,
-      "z": 6,
+      "z": 14,
       "w": 1,
       "h": 3,
       "y": 0,
       "val": 0,
-      "var": "VAR_UNK_4132"
+      "var": 16690
     }
   ]
 }

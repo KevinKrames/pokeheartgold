@@ -1,44 +1,45 @@
 #include "constants/scrcmd.h"
-#include "fielddata/script/scr_seq/event_T20.h"
-#include "msgdata/msg/msg_0542_T20.h"
+#include "fielddata\script\scr_seq\event_T20.h"
+#include "msgdata\msg\msg_0542_T20.h"
 	.include "asm/macros/script.inc"
 
 	.rodata
 
-	ScrDef scr_seq_T20_000
-	ScrDef scr_seq_T20_001
-	ScrDef scr_seq_T20_002
-	ScrDef scr_seq_T20_003
-	ScrDef scr_seq_T20_004
-	ScrDef scr_seq_T20_005
-	ScrDef scr_seq_T20_006
-	ScrDef scr_seq_T20_007
-	ScrDef scr_seq_T20_008
-	ScrDef scr_seq_T20_009
-	ScrDef scr_seq_T20_010
-	ScrDef scr_seq_T20_011
-	ScrDef scr_seq_T20_012
-	ScrDef scr_seq_T20_013
-	ScrDef scr_seq_T20_014
-	ScrDef scr_seq_T20_015
-	ScrDef scr_seq_T20_016
-	ScrDef scr_seq_T20_017
-	ScrDefEnd
+	scrdef scr_seq_T20_000
+	scrdef scr_seq_T20_001
+	scrdef scr_seq_T20_002
+	scrdef scr_seq_T20_003
+	scrdef scr_seq_T20_004
+	scrdef scr_seq_T20_005
+	scrdef scr_seq_T20_006
+	scrdef scr_seq_T20_007
+	scrdef scr_seq_T20_008
+	scrdef scr_seq_T20_009
+	scrdef scr_seq_T20_010
+	scrdef scr_seq_T20_011
+	scrdef scr_seq_T20_012
+	scrdef scr_seq_T20_013
+	scrdef scr_seq_T20_014
+	scrdef scr_seq_T20_015
+	scrdef scr_seq_T20_016
+	scrdef scr_seq_T20_017
+	scrdef_end
 
 scr_seq_T20_006:
 	GetFriendSprite VAR_OBJ_0
-	GoToIfUnset FLAG_UNK_189, _005F
+	CheckFlag FLAG_UNK_189
+	GoToIf lt, _005F
 	ClearFlag FLAG_UNK_189
 	End
 
 _005F:
 	SetVar VAR_TEMP_x4007, 0
 	CheckBadge BADGE_PLAIN, VAR_TEMP_x4002
-	Compare VAR_TEMP_x4002, 0
-	GoToIfEq _0089
+	CompareVarToValue VAR_TEMP_x4002, 0
+	GoToIf eq, _0089
 	GetWeekday VAR_TEMP_x4000
-	Compare VAR_TEMP_x4000, 2
-	GoToIfEq _008F
+	CompareVarToValue VAR_TEMP_x4000, 2
+	GoToIf eq, _008F
 _0089:
 	SetFlag FLAG_HIDE_CAMERON
 	End
@@ -48,17 +49,17 @@ _008F:
 	End
 
 scr_seq_T20_009:
-	Compare VAR_SCENE_NEW_BARK_TOWN_OW, 1
-	GoToIfEq _00A4
+	CompareVarToValue VAR_SCENE_NEW_BARK_TOWN_OW, 1
+	GoToIf eq, _00A4
 	End
 
 _00A4:
 	ClearFlag FLAG_HIDE_NEW_BARK_FRIEND
-	ShowPerson obj_T20_var_1
+	ShowPerson 4
 	ClearFlag FLAG_HIDE_NEW_BARK_MARILL
-	ShowPerson obj_T20_tsure_poke_static_marill
-	MovePersonFacing obj_T20_var_1, 686, 0, 396, DIR_WEST
-	MovePersonFacing obj_T20_tsure_poke_static_marill, 685, 0, 396, DIR_SOUTH
+	ShowPerson 3
+	MovePersonFacing 4, 686, 0, 396, DIR_WEST
+	MovePersonFacing 3, 685, 0, 396, DIR_SOUTH
 	End
 
 scr_seq_T20_000:
@@ -67,193 +68,202 @@ scr_seq_T20_000:
 	NPCMsg msg_0542_T20_00013
 	CloseMsg
 	GetPlayerFacing VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfNe _00F8
-	ApplyMovement obj_T20_gsrivel, _024C
+	CompareVarToValue VAR_SPECIAL_RESULT, 0
+	GoToIf ne, _00F8
+	ApplyMovement 0, _024C
 	GoTo _0128
 
 _00F8:
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _0113
-	ApplyMovement obj_T20_gsrivel, _0244
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _0113
+	ApplyMovement 0, _0244
 	GoTo _0128
 
 _0113:
-	Compare VAR_SPECIAL_RESULT, 3
-	GoToIfNe _0128
-	ApplyMovement obj_T20_gsrivel, _0254
+	CompareVarToValue VAR_SPECIAL_RESULT, 3
+	GoToIf ne, _0128
+	ApplyMovement 0, _0254
 _0128:
 	WaitMovement
 	NPCMsg msg_0542_T20_00014
 	CloseMsg
-	GoToIfUnset FLAG_GOT_STARTER, _0166
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _0153
+	CheckFlag FLAG_GOT_STARTER
+	GoToIf lt, _0166
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _0153
 	GoTo _01BA
 
-_014D:
-	GoTo _0166
-
+	; 0x014D
+	.byte 0x16, 0x00, 0x13
+	.byte 0x00, 0x00, 0x00
 _0153:
-	Compare VAR_SPECIAL_RESULT, 3
-	GoToIfNe _0166
+	CompareVarToValue VAR_SPECIAL_RESULT, 3
+	GoToIf ne, _0166
 	GoTo _0192
 
 _0166:
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _017F
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _017F
 	GoTo _0202
 
-_0179:
-	GoTo _0192
-
+	; 0x0179
+	.byte 0x16, 0x00, 0x13, 0x00, 0x00, 0x00
 _017F:
-	Compare VAR_SPECIAL_RESULT, 3
-	GoToIfNe _0192
+	CompareVarToValue VAR_SPECIAL_RESULT, 3
+	GoToIf ne, _0192
 	GoTo _01E2
 
 _0192:
-	ApplyMovement obj_T20_gsrivel, _0264
+	ApplyMovement 0, _0264
 	ApplyMovement obj_partner_poke, _0224
 	ApplyMovement obj_player, _0288
 	WaitMovement
-	ApplyMovement obj_T20_gsrivel, _0274
+	ApplyMovement 0, _0274
 	WaitMovement
 	ReleaseAll
 	End
 
 _01BA:
-	ApplyMovement obj_T20_gsrivel, _02A0
+	ApplyMovement 0, _02A0
 	ApplyMovement obj_partner_poke, _0234
 	ApplyMovement obj_player, _02B8
 	WaitMovement
-	ApplyMovement obj_T20_gsrivel, _0274
+	ApplyMovement 0, _0274
 	WaitMovement
 	ReleaseAll
 	End
 
 _01E2:
-	ApplyMovement obj_T20_gsrivel, _0264
+	ApplyMovement 0, _0264
 	ApplyMovement obj_player, _0288
 	WaitMovement
-	ApplyMovement obj_T20_gsrivel, _0274
+	ApplyMovement 0, _0274
 	WaitMovement
 	ReleaseAll
 	End
 
 _0202:
-	ApplyMovement obj_T20_gsrivel, _02A0
+	ApplyMovement 0, _02A0
 	ApplyMovement obj_player, _02B8
 	WaitMovement
-	ApplyMovement obj_T20_gsrivel, _0274
+	ApplyMovement 0, _0274
 	WaitMovement
 	ReleaseAll
 	End
 
-	.balign 4, 0
+	; 0x0222
+	.byte 0x00, 0x00
+
 _0224:
-	LockDir
-	WalkSlightlyFastSouth 4
-	UnlockDir
+
+	; 0x0224
+	step 71, 1
+	step 77, 4
+	step 72, 1
 	EndMovement
 
-	.balign 4, 0
 _0234:
-	LockDir
-	WalkSlightlyFastSouth 6
-	UnlockDir
+
+	; 0x0234
+	step 71, 1
+	step 77, 6
+	step 72, 1
 	EndMovement
 
-	.balign 4, 0
 _0244:
-	WalkOnSpotNormalNorth
+
+	; 0x0244
+	step 32, 1
 	EndMovement
 
-	.balign 4, 0
 _024C:
-	WalkOnSpotNormalSouth
+
+	; 0x024C
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _0254:
-	WalkOnSpotNormalWest
-	EndMovement
 
-	.balign 4, 0
-_025C:
-	WalkOnSpotNormalEast
+	; 0x0254
+	step 34, 1
 	EndMovement
+	.byte 0x23, 0x00, 0x01, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00
 
-	.balign 4, 0
 _0264:
-	WalkSlightlyFastWest
-	FaceSouth
-	WalkSlightlyFastSouth 2
+
+	; 0x0264
+	step 78, 1
+	step 1, 1
+	step 77, 2
 	EndMovement
 
-	.balign 4, 0
 _0274:
-	FaceNorth
-	WalkNormalNorth 2
-	FaceEast
-	WalkNormalEast
+
+	; 0x0274
+	step 0, 1
+	step 12, 2
+	step 3, 1
+	step 15, 1
 	EndMovement
 
-	.balign 4, 0
 _0288:
-	FaceNorth
-	LockDir
-	WalkSlightlyFastSouth 2
-	JumpFarSouth
-	UnlockDir
+
+	; 0x0288
+	step 0, 1
+	step 71, 1
+	step 77, 2
+	step 57, 1
+	step 72, 1
 	EndMovement
 
-	.balign 4, 0
 _02A0:
-	WalkSlightlyFastNorth
-	FaceWest
-	WalkSlightlyFastWest
-	FaceSouth
-	WalkSlightlyFastSouth 3
+
+	; 0x02A0
+	step 76, 1
+	step 2, 1
+	step 78, 1
+	step 1, 1
+	step 77, 3
 	EndMovement
 
-	.balign 4, 0
 _02B8:
-	FaceEast
-	LockDir
-	WalkSlightlyFastWest
-	UnlockDir
-	FaceNorth
-	LockDir
-	WalkSlightlyFastSouth 3
-	JumpFarSouth
-	UnlockDir
-	EndMovement
 
+	; 0x02B8
+	step 3, 1
+	step 71, 1
+	step 78, 1
+	step 72, 1
+	step 0, 1
+	step 71, 1
+	step 77, 3
+	step 57, 1
+	step 72, 1
+	EndMovement
 scr_seq_T20_001:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
 	FacePlayer
-	Compare VAR_SCENE_NEW_BARK_TOWN_OW, 0
-	GoToIfNe _02FE
+	CompareVarToValue VAR_SCENE_NEW_BARK_TOWN_OW, 0
+	GoToIf ne, _02FE
 	NPCMsg msg_0542_T20_00009
 	GoTo _0347
 
 _02FE:
-	Compare VAR_SCENE_NEW_BARK_TOWN_OW, 1
-	GoToIfNe _0314
+	CompareVarToValue VAR_SCENE_NEW_BARK_TOWN_OW, 1
+	GoToIf ne, _0314
 	NPCMsg msg_0542_T20_00005
 	GoTo _0347
 
 _0314:
-	Compare VAR_SCENE_NEW_BARK_TOWN_OW, 2
-	GoToIfNe _032A
+	CompareVarToValue VAR_SCENE_NEW_BARK_TOWN_OW, 2
+	GoToIf ne, _032A
 	NPCMsg msg_0542_T20_00005
 	GoTo _0347
 
 _032A:
-	Compare VAR_SCENE_NEW_BARK_WEST_EXIT, 1
-	GoToIfNe _0340
+	CompareVarToValue VAR_SCENE_NEW_BARK_WEST_EXIT, 1
+	GoToIf ne, _0340
 	NPCMsg msg_0542_T20_00000
 	GoTo _0347
 
@@ -269,8 +279,9 @@ _0347:
 scr_seq_T20_002:
 	FollowMonResetMovement
 	LockAll
-	GoToIfSet FLAG_GOT_POKEGEAR, _075A
-	ApplyMovement obj_T20_gswoman1, _09B8
+	CheckFlag FLAG_GOT_POKEGEAR
+	GoToIf eq, _075A
+	ApplyMovement 1, _09B8
 	WaitMovement
 	BufferPlayersName 0
 	GenderMsgBox msg_0542_T20_00001, msg_0542_T20_00002
@@ -278,97 +289,97 @@ scr_seq_T20_002:
 	CloseMsg
 	ApplyMovement obj_player, _09D4
 	WaitMovement
-	Compare VAR_SCENE_NEW_BARK_TOWN_OW, 2
-	GoToIfEq _054E
+	CompareVarToValue VAR_SCENE_NEW_BARK_TOWN_OW, 2
+	GoToIf eq, _054E
 	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _03AF
-	ApplyMovement obj_T20_gswoman1, _0A1C
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _03AF
+	ApplyMovement 1, _0A1C
 	GoTo _044B
 
 _03AF:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _03CA
-	ApplyMovement obj_T20_gswoman1, _0A2C
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _03CA
+	ApplyMovement 1, _0A2C
 	GoTo _044B
 
 _03CA:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _03E5
-	ApplyMovement obj_T20_gswoman1, _0A3C
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _03E5
+	ApplyMovement 1, _0A3C
 	GoTo _044B
 
 _03E5:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _0400
-	ApplyMovement obj_T20_gswoman1, _0A4C
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _0400
+	ApplyMovement 1, _0A4C
 	GoTo _044B
 
 _0400:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _041B
-	ApplyMovement obj_T20_gswoman1, _0A54
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _041B
+	ApplyMovement 1, _0A54
 	GoTo _044B
 
 _041B:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _0436
-	ApplyMovement obj_T20_gswoman1, _0A64
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _0436
+	ApplyMovement 1, _0A64
 	GoTo _044B
 
 _0436:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _044B
-	ApplyMovement obj_T20_gswoman1, _0A74
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _044B
+	ApplyMovement 1, _0A74
 _044B:
 	WaitMovement
 	NPCMsg msg_0542_T20_00003
 	CloseMsg
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _0475
-	ApplyMovement obj_T20_gswoman1, _0AEC
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _0475
+	ApplyMovement 1, _0AEC
 	ApplyMovement obj_player, _0BD4
 	GoTo _0541
 
 _0475:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _0498
-	ApplyMovement obj_T20_gswoman1, _0B00
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _0498
+	ApplyMovement 1, _0B00
 	ApplyMovement obj_player, _0BE4
 	GoTo _0541
 
 _0498:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _04BB
-	ApplyMovement obj_T20_gswoman1, _0B14
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _04BB
+	ApplyMovement 1, _0B14
 	ApplyMovement obj_player, _0BF4
 	GoTo _0541
 
 _04BB:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _04DE
-	ApplyMovement obj_T20_gswoman1, _0B28
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _04DE
+	ApplyMovement 1, _0B28
 	ApplyMovement obj_player, _0C04
 	GoTo _0541
 
 _04DE:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0501
-	ApplyMovement obj_T20_gswoman1, _0B34
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _0501
+	ApplyMovement 1, _0B34
 	ApplyMovement obj_player, _0C0C
 	GoTo _0541
 
 _0501:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _0524
-	ApplyMovement obj_T20_gswoman1, _0B48
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _0524
+	ApplyMovement 1, _0B48
 	ApplyMovement obj_player, _0C1C
 	GoTo _0541
 
 _0524:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _0541
-	ApplyMovement obj_T20_gswoman1, _0B58
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _0541
+	ApplyMovement 1, _0B58
 	ApplyMovement obj_player, _0C2C
 _0541:
 	WaitMovement
@@ -380,52 +391,52 @@ _0541:
 
 _054E:
 	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _0577
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _0577
 	ApplyMovement obj_player, _09E8
-	ApplyMovement obj_T20_gswoman1, _0A84
+	ApplyMovement 1, _0A84
 	GoTo _0643
 
 _0577:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _059A
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _059A
 	ApplyMovement obj_player, _09E8
-	ApplyMovement obj_T20_gswoman1, _0A90
+	ApplyMovement 1, _0A90
 	GoTo _0643
 
 _059A:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _05BD
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _05BD
 	ApplyMovement obj_player, _09E8
-	ApplyMovement obj_T20_gswoman1, _0A9C
+	ApplyMovement 1, _0A9C
 	GoTo _0643
 
 _05BD:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _05E0
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _05E0
 	ApplyMovement obj_player, _09DC
-	ApplyMovement obj_T20_gswoman1, _0AA8
+	ApplyMovement 1, _0AA8
 	GoTo _0643
 
 _05E0:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0603
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _0603
 	ApplyMovement obj_player, _09DC
-	ApplyMovement obj_T20_gswoman1, _0ABC
+	ApplyMovement 1, _0ABC
 	GoTo _0643
 
 _0603:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _0626
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _0626
 	ApplyMovement obj_player, _09DC
-	ApplyMovement obj_T20_gswoman1, _0AC8
+	ApplyMovement 1, _0AC8
 	GoTo _0643
 
 _0626:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _0643
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _0643
 	ApplyMovement obj_player, _09DC
-	ApplyMovement obj_T20_gswoman1, _0AD4
+	ApplyMovement 1, _0AD4
 _0643:
 	WaitMovement
 	NPCMsg msg_0542_T20_00010
@@ -433,51 +444,51 @@ _0643:
 	ToggleFollowingPokemonMovement 0
 	WaitFollowingPokemonMovement
 	FollowingPokemonMovement 55
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _0677
-	ApplyMovement obj_T20_gswoman1, _0B68
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _0677
+	ApplyMovement 1, _0B68
 	ApplyMovement obj_player, _0C3C
 	GoTo _0743
 
 _0677:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _069A
-	ApplyMovement obj_T20_gswoman1, _0B78
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _069A
+	ApplyMovement 1, _0B78
 	ApplyMovement obj_player, _0C48
 	GoTo _0743
 
 _069A:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _06BD
-	ApplyMovement obj_T20_gswoman1, _0B88
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _06BD
+	ApplyMovement 1, _0B88
 	ApplyMovement obj_player, _0C54
 	GoTo _0743
 
 _06BD:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _06E0
-	ApplyMovement obj_T20_gswoman1, _0B94
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _06E0
+	ApplyMovement 1, _0B94
 	ApplyMovement obj_player, _0C60
 	GoTo _0743
 
 _06E0:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0703
-	ApplyMovement obj_T20_gswoman1, _0BA8
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _0703
+	ApplyMovement 1, _0BA8
 	ApplyMovement obj_player, _0C74
 	GoTo _0743
 
 _0703:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _0726
-	ApplyMovement obj_T20_gswoman1, _0BB4
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _0726
+	ApplyMovement 1, _0BB4
 	ApplyMovement obj_player, _0C80
 	GoTo _0743
 
 _0726:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _0743
-	ApplyMovement obj_T20_gswoman1, _0BC4
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _0743
+	ApplyMovement 1, _0BC4
 	ApplyMovement obj_player, _0C8C
 _0743:
 	WaitMovement
@@ -494,9 +505,9 @@ _075A:
 	DoorAnimationLoad 21, 12, 12, 9, 77
 	DoorAnimationOpen 77
 	DoorAnimationWait 77
-	ShowPerson obj_T20_doctor
-	MovePersonFacing obj_T20_doctor, 684, 0, 393, DIR_SOUTH
-	ApplyMovement obj_T20_doctor, _0D08
+	ShowPerson 5
+	MovePersonFacing 5, 684, 0, 393, DIR_SOUTH
+	ApplyMovement 5, _0D08
 	WaitMovement
 	DoorAnimationClose 77
 	DoorAnimationWait 77
@@ -506,51 +517,51 @@ _075A:
 	ApplyMovement obj_player, _09C8
 	WaitMovement
 	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _07C6
-	ApplyMovement obj_T20_doctor, _0C98
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _07C6
+	ApplyMovement 5, _0C98
 	ApplyMovement obj_player, _09FC
 	GoTo _0892
 
 _07C6:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _07E9
-	ApplyMovement obj_T20_doctor, _0CA8
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _07E9
+	ApplyMovement 5, _0CA8
 	ApplyMovement obj_player, _0A0C
 	GoTo _0892
 
 _07E9:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _080C
-	ApplyMovement obj_T20_doctor, _0CB8
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _080C
+	ApplyMovement 5, _0CB8
 	ApplyMovement obj_player, _0A0C
 	GoTo _0892
 
 _080C:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _082F
-	ApplyMovement obj_T20_doctor, _0CC8
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _082F
+	ApplyMovement 5, _0CC8
 	ApplyMovement obj_player, _0A0C
 	GoTo _0892
 
 _082F:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0852
-	ApplyMovement obj_T20_doctor, _0CD8
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _0852
+	ApplyMovement 5, _0CD8
 	ApplyMovement obj_player, _0A0C
 	GoTo _0892
 
 _0852:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _0875
-	ApplyMovement obj_T20_doctor, _0CE8
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _0875
+	ApplyMovement 5, _0CE8
 	ApplyMovement obj_player, _09F4
 	GoTo _0892
 
 _0875:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _0892
-	ApplyMovement obj_T20_doctor, _0CF8
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _0892
+	ApplyMovement 5, _0CF8
 	ApplyMovement obj_player, _09F4
 _0892:
 	WaitMovement
@@ -563,56 +574,56 @@ _0892:
 	NPCMsg msg_0542_T20_00020
 	CloseMsg
 	GetPlayerCoords VAR_TEMP_x4000, VAR_TEMP_x4001
-	Compare VAR_TEMP_x4001, 396
-	GoToIfNe _08D5
+	CompareVarToValue VAR_TEMP_x4001, 396
+	GoToIf ne, _08D5
 	ApplyMovement obj_player, _09D4
-	ApplyMovement obj_T20_doctor, _0D18
+	ApplyMovement 5, _0D18
 	GoTo _0981
 
 _08D5:
-	Compare VAR_TEMP_x4001, 397
-	GoToIfNe _08F8
+	CompareVarToValue VAR_TEMP_x4001, 397
+	GoToIf ne, _08F8
 	ApplyMovement obj_player, _09D4
-	ApplyMovement obj_T20_doctor, _0D24
+	ApplyMovement 5, _0D24
 	GoTo _0981
 
 _08F8:
-	Compare VAR_TEMP_x4001, 398
-	GoToIfNe _091B
+	CompareVarToValue VAR_TEMP_x4001, 398
+	GoToIf ne, _091B
 	ApplyMovement obj_player, _09F4
-	ApplyMovement obj_T20_doctor, _0D30
+	ApplyMovement 5, _0D30
 	GoTo _0981
 
 _091B:
-	Compare VAR_TEMP_x4001, 399
-	GoToIfNe _0936
-	ApplyMovement obj_T20_doctor, _0D40
+	CompareVarToValue VAR_TEMP_x4001, 399
+	GoToIf ne, _0936
+	ApplyMovement 5, _0D40
 	GoTo _0981
 
 _0936:
-	Compare VAR_TEMP_x4001, 400
-	GoToIfNe _0951
-	ApplyMovement obj_T20_doctor, _0D50
+	CompareVarToValue VAR_TEMP_x4001, 400
+	GoToIf ne, _0951
+	ApplyMovement 5, _0D50
 	GoTo _0981
 
 _0951:
-	Compare VAR_TEMP_x4001, 401
-	GoToIfNe _096C
-	ApplyMovement obj_T20_doctor, _0D60
+	CompareVarToValue VAR_TEMP_x4001, 401
+	GoToIf ne, _096C
+	ApplyMovement 5, _0D60
 	GoTo _0981
 
 _096C:
-	Compare VAR_TEMP_x4001, 402
-	GoToIfNe _0981
-	ApplyMovement obj_T20_doctor, _0D70
+	CompareVarToValue VAR_TEMP_x4001, 402
+	GoToIf ne, _0981
+	ApplyMovement 5, _0D70
 _0981:
 	WaitMovement
 	DoorAnimationLoad 21, 12, 12, 9, 77
 	DoorAnimationOpen 77
 	DoorAnimationWait 77
-	ApplyMovement obj_T20_doctor, _0D10
+	ApplyMovement 5, _0D10
 	WaitMovement
-	HidePerson obj_T20_doctor
+	HidePerson 5
 	DoorAnimationClose 77
 	DoorAnimationWait 77
 	DoorAnimationUnload 77
@@ -620,572 +631,579 @@ _0981:
 	ReleaseAll
 	End
 
-	.balign 4, 0
+	; 0x09B5
+	.byte 0x00, 0x00, 0x00
+
 _09B8:
-	WalkOnSpotNormalWest
-	EmoteExclamationMark
-	Delay8
+
+	; 0x09B8
+	step 34, 1
+	step 75, 1
+	step 63, 1
 	EndMovement
 
-	.balign 4, 0
 _09C8:
-	EmoteExclamationMark
-	Delay8
+
+	; 0x09C8
+	step 75, 1
+	step 63, 1
 	EndMovement
 
-	.balign 4, 0
 _09D4:
-	FaceEast
+
+	; 0x09D4
+	step 3, 1
 	EndMovement
 
-	.balign 4, 0
 _09DC:
-	Delay32 2
-	WalkOnSpotNormalNorth
+
+	; 0x09DC
+	step 66, 2
+	step 32, 1
 	EndMovement
 
-	.balign 4, 0
 _09E8:
-	Delay32 2
-	WalkOnSpotNormalSouth
+
+	; 0x09E8
+	step 66, 2
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _09F4:
-	FaceNorth
+
+	; 0x09F4
+	step 0, 1
 	EndMovement
 
-	.balign 4, 0
 _09FC:
-	FaceEast
-	Delay32 2
-	FaceSouth
+
+	; 0x09FC
+	step 3, 1
+	step 66, 2
+	step 1, 1
 	EndMovement
 
-	.balign 4, 0
 _0A0C:
-	FaceEast
-	Delay32 2
-	FaceNorth
+
+	; 0x0A0C
+	step 3, 1
+	step 66, 2
+	step 0, 1
 	EndMovement
 
-	.balign 4, 0
 _0A1C:
-	WalkNormalWest 3
-	WalkNormalNorth 3
-	WalkNormalWest 3
+
+	; 0x0A1C
+	step 14, 3
+	step 12, 3
+	step 14, 3
 	EndMovement
 
-	.balign 4, 0
 _0A2C:
-	WalkNormalWest 3
-	WalkNormalNorth 2
-	WalkNormalWest 3
+
+	; 0x0A2C
+	step 14, 3
+	step 12, 2
+	step 14, 3
 	EndMovement
 
-	.balign 4, 0
 _0A3C:
-	WalkNormalWest 3
-	WalkNormalNorth
-	WalkNormalWest 3
+
+	; 0x0A3C
+	step 14, 3
+	step 12, 1
+	step 14, 3
 	EndMovement
 
-	.balign 4, 0
 _0A4C:
-	WalkNormalWest 6
+
+	; 0x0A4C
+	step 14, 6
 	EndMovement
 
-	.balign 4, 0
 _0A54:
-	WalkNormalWest 3
-	WalkNormalSouth
-	WalkNormalWest 3
+
+	; 0x0A54
+	step 14, 3
+	step 13, 1
+	step 14, 3
 	EndMovement
 
-	.balign 4, 0
 _0A64:
-	WalkNormalWest 6
-	WalkNormalSouth 2
-	FaceWest
+
+	; 0x0A64
+	step 14, 6
+	step 13, 2
+	step 2, 1
 	EndMovement
 
-	.balign 4, 0
 _0A74:
-	WalkNormalWest 6
-	WalkNormalSouth 3
-	FaceWest
+
+	; 0x0A74
+	step 14, 6
+	step 13, 3
+	step 2, 1
 	EndMovement
 
-	.balign 4, 0
 _0A84:
-	WalkNormalWest 7
-	WalkNormalNorth 2
+
+	; 0x0A84
+	step 14, 7
+	step 12, 2
 	EndMovement
 
-	.balign 4, 0
 _0A90:
-	WalkNormalWest 7
-	WalkNormalNorth
+
+	; 0x0A90
+	step 14, 7
+	step 12, 1
 	EndMovement
 
-	.balign 4, 0
 _0A9C:
-	WalkNormalWest 7
-	WalkOnSpotNormalNorth
+
+	; 0x0A9C
+	step 14, 7
+	step 32, 1
 	EndMovement
 
-	.balign 4, 0
 _0AA8:
-	WalkNormalWest 3
-	WalkNormalNorth
-	WalkNormalWest 4
-	WalkOnSpotNormalSouth
+
+	; 0x0AA8
+	step 14, 3
+	step 12, 1
+	step 14, 4
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _0ABC:
-	WalkNormalWest 7
-	WalkOnSpotNormalSouth
+
+	; 0x0ABC
+	step 14, 7
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _0AC8:
-	WalkNormalWest 7
-	WalkNormalSouth
+
+	; 0x0AC8
+	step 14, 7
+	step 13, 1
 	EndMovement
 
-	.balign 4, 0
 _0AD4:
-	WalkNormalWest 7
-	WalkNormalSouth 2
-	EndMovement
 
-	.balign 4, 0
-_0AE0:
-	WalkNormalEast 6
-	WalkOnSpotNormalWest
+	; 0x0AD4
+	step 14, 7
+	step 13, 2
 	EndMovement
+	.byte 0x0f, 0x00, 0x06, 0x00, 0x22, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00
 
-	.balign 4, 0
 _0AEC:
-	WalkNormalEast 3
-	WalkNormalSouth 3
-	WalkNormalEast 3
-	WalkOnSpotNormalWest
+
+	; 0x0AEC
+	step 15, 3
+	step 13, 3
+	step 15, 3
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B00:
-	WalkNormalEast 3
-	WalkNormalSouth 2
-	WalkNormalEast 3
-	WalkOnSpotNormalWest
+
+	; 0x0B00
+	step 15, 3
+	step 13, 2
+	step 15, 3
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B14:
-	WalkNormalEast 3
-	WalkNormalSouth
-	WalkNormalEast 3
-	WalkOnSpotNormalWest
+
+	; 0x0B14
+	step 15, 3
+	step 13, 1
+	step 15, 3
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B28:
-	WalkNormalEast 6
-	WalkOnSpotNormalWest
+
+	; 0x0B28
+	step 15, 6
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B34:
-	WalkNormalEast 3
-	WalkNormalNorth
-	WalkNormalEast 3
-	WalkOnSpotNormalWest
+
+	; 0x0B34
+	step 15, 3
+	step 12, 1
+	step 15, 3
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B48:
-	WalkNormalNorth 2
-	WalkNormalEast 6
-	WalkOnSpotNormalWest
+
+	; 0x0B48
+	step 12, 2
+	step 15, 6
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B58:
-	WalkNormalNorth 3
-	WalkNormalEast 6
-	WalkOnSpotNormalWest
+
+	; 0x0B58
+	step 12, 3
+	step 15, 6
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B68:
-	WalkNormalSouth 2
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0B68
+	step 13, 2
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B78:
-	WalkNormalSouth
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0B78
+	step 13, 1
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B88:
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0B88
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0B94:
-	WalkNormalEast 3
-	WalkNormalSouth
-	WalkNormalEast 4
-	WalkOnSpotNormalWest
+
+	; 0x0B94
+	step 15, 3
+	step 13, 1
+	step 15, 4
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0BA8:
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0BA8
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0BB4:
-	WalkNormalNorth
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0BB4
+	step 12, 1
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0BC4:
-	WalkNormalNorth 2
-	WalkNormalEast 7
-	WalkOnSpotNormalWest
+
+	; 0x0BC4
+	step 12, 2
+	step 15, 7
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _0BD4:
-	WalkNormalEast 4
-	WalkNormalSouth 3
-	WalkNormalEast 2
+
+	; 0x0BD4
+	step 15, 4
+	step 13, 3
+	step 15, 2
 	EndMovement
 
-	.balign 4, 0
 _0BE4:
-	WalkNormalEast 4
-	WalkNormalSouth 2
-	WalkNormalEast 2
+
+	; 0x0BE4
+	step 15, 4
+	step 13, 2
+	step 15, 2
 	EndMovement
 
-	.balign 4, 0
 _0BF4:
-	WalkNormalEast 4
-	WalkNormalSouth
-	WalkNormalEast 2
+
+	; 0x0BF4
+	step 15, 4
+	step 13, 1
+	step 15, 2
 	EndMovement
 
-	.balign 4, 0
 _0C04:
-	WalkNormalEast 6
+
+	; 0x0C04
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C0C:
-	WalkNormalEast 4
-	WalkNormalNorth
-	WalkNormalEast 2
+
+	; 0x0C0C
+	step 15, 4
+	step 12, 1
+	step 15, 2
 	EndMovement
 
-	.balign 4, 0
 _0C1C:
-	WalkNormalEast
-	WalkNormalNorth 2
-	WalkNormalEast 5
+
+	; 0x0C1C
+	step 15, 1
+	step 12, 2
+	step 15, 5
 	EndMovement
 
-	.balign 4, 0
 _0C2C:
-	WalkNormalEast
-	WalkNormalNorth 3
-	WalkNormalEast 5
+
+	; 0x0C2C
+	step 15, 1
+	step 12, 3
+	step 15, 5
 	EndMovement
 
-	.balign 4, 0
 _0C3C:
-	WalkNormalSouth 3
-	WalkNormalEast 6
+
+	; 0x0C3C
+	step 13, 3
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C48:
-	WalkNormalSouth 2
-	WalkNormalEast 6
+
+	; 0x0C48
+	step 13, 2
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C54:
-	WalkNormalSouth
-	WalkNormalEast 6
+
+	; 0x0C54
+	step 13, 1
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C60:
-	WalkNormalNorth
-	WalkNormalEast 3
-	WalkNormalSouth
-	WalkNormalEast 3
+
+	; 0x0C60
+	step 12, 1
+	step 15, 3
+	step 13, 1
+	step 15, 3
 	EndMovement
 
-	.balign 4, 0
 _0C74:
-	WalkNormalNorth
-	WalkNormalEast 6
+
+	; 0x0C74
+	step 12, 1
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C80:
-	WalkNormalNorth 2
-	WalkNormalEast 6
+
+	; 0x0C80
+	step 12, 2
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C8C:
-	WalkNormalNorth 3
-	WalkNormalEast 6
+
+	; 0x0C8C
+	step 12, 3
+	step 15, 6
 	EndMovement
 
-	.balign 4, 0
 _0C98:
-	WalkNormalSouth 3
-	WalkNormalWest 8
-	WalkOnSpotNormalNorth
+
+	; 0x0C98
+	step 13, 3
+	step 14, 8
+	step 32, 1
 	EndMovement
 
-	.balign 4, 0
 _0CA8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkOnSpotNormalSouth
+
+	; 0x0CA8
+	step 13, 2
+	step 14, 8
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _0CB8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkNormalSouth
+
+	; 0x0CB8
+	step 13, 2
+	step 14, 8
+	step 13, 1
 	EndMovement
 
-	.balign 4, 0
 _0CC8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkNormalSouth 2
+
+	; 0x0CC8
+	step 13, 2
+	step 14, 8
+	step 13, 2
 	EndMovement
 
-	.balign 4, 0
 _0CD8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkNormalSouth 3
+
+	; 0x0CD8
+	step 13, 2
+	step 14, 8
+	step 13, 3
 	EndMovement
 
-	.balign 4, 0
 _0CE8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkNormalSouth 4
+
+	; 0x0CE8
+	step 13, 2
+	step 14, 8
+	step 13, 4
 	EndMovement
 
-	.balign 4, 0
 _0CF8:
-	WalkNormalSouth 2
-	WalkNormalWest 8
-	WalkNormalSouth 5
+
+	; 0x0CF8
+	step 13, 2
+	step 14, 8
+	step 13, 5
 	EndMovement
 
-	.balign 4, 0
 _0D08:
-	WalkNormalSouth
+
+	; 0x0D08
+	step 13, 1
 	EndMovement
 
-	.balign 4, 0
 _0D10:
-	WalkNormalNorth
+
+	; 0x0D10
+	step 12, 1
 	EndMovement
 
-	.balign 4, 0
 _0D18:
-	WalkNormalEast 8
-	WalkNormalNorth 3
+
+	; 0x0D18
+	step 15, 8
+	step 12, 3
 	EndMovement
 
-	.balign 4, 0
 _0D24:
-	WalkNormalEast 8
-	WalkNormalNorth 2
+
+	; 0x0D24
+	step 15, 8
+	step 12, 2
 	EndMovement
 
-	.balign 4, 0
 _0D30:
-	WalkNormalNorth
-	WalkNormalEast 8
-	WalkNormalNorth 2
+
+	; 0x0D30
+	step 12, 1
+	step 15, 8
+	step 12, 2
 	EndMovement
 
-	.balign 4, 0
 _0D40:
-	WalkNormalNorth 2
-	WalkNormalEast 8
-	WalkNormalNorth 2
+
+	; 0x0D40
+	step 12, 2
+	step 15, 8
+	step 12, 2
 	EndMovement
 
-	.balign 4, 0
 _0D50:
-	WalkNormalNorth 2
-	WalkNormalEast 8
-	WalkNormalNorth 3
+
+	; 0x0D50
+	step 12, 2
+	step 15, 8
+	step 12, 3
 	EndMovement
 
-	.balign 4, 0
 _0D60:
-	WalkNormalNorth 2
-	WalkNormalEast 8
-	WalkNormalNorth 4
+
+	; 0x0D60
+	step 12, 2
+	step 15, 8
+	step 12, 4
 	EndMovement
 
-	.balign 4, 0
 _0D70:
-	WalkNormalNorth 5
-	WalkNormalEast 8
-	WalkNormalNorth 2
-	EndMovement
 
+	; 0x0D70
+	step 12, 5
+	step 15, 8
+	step 12, 2
+	EndMovement
 scr_seq_T20_003:
+	FollowMonResetMovement
 	LockAll
-	; Skip the first Lyra/Ethan and Marill encounter outside the house.
+	ClearFlag FLAG_HIDE_NEW_BARK_FRIEND
+	GoTo _0DEC
+
+	; 0x0D8E
+	.byte 0x00, 0x00
+	.byte 0x5f, 0x00, 0x49, 0x00, 0x02, 0x06, 0x1f, 0x00, 0xa2, 0x01, 0x64, 0x00, 0x04, 0x00, 0x4b, 0x00
+	.byte 0x02, 0x06, 0x14, 0x00, 0xed, 0x07, 0x5e, 0x00, 0x04, 0x00, 0xf6, 0x00, 0x00, 0x00, 0x5f, 0x00
+	.byte 0x5e, 0x00, 0x03, 0x00, 0x80, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x5e, 0x00, 0xff, 0x00, 0xda, 0x00
+	.byte 0x00, 0x00, 0x5e, 0x00, 0x04, 0x00, 0xee, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x5e, 0x00, 0x03, 0x00
+	.byte 0x8c, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x5e, 0x00, 0x04, 0x00, 0xe2, 0x00, 0x00, 0x00, 0x5e, 0x00
+	.byte 0x03, 0x00, 0x82, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x14, 0x00, 0xee, 0x07
+_0DEC:
 	SetVar VAR_SCENE_PLAYERS_HOUSE_1F, 2
-	HidePerson obj_T20_tsure_poke_static_marill
-	HidePerson obj_T20_var_1
+	HidePerson 3
+	HidePerson 4
 	SetFlag FLAG_HIDE_NEW_BARK_MARILL
 	SetFlag FLAG_HIDE_NEW_BARK_FRIEND
 	ReleaseAll
 	End
 
-	.balign 4, 0
-_0E08:
-	Delay32
-	WalkFastNorth 8
-	LockDir
-	JumpNearFastSouth
-	UnlockDir
-	FaceEast 5
-	FaceNorth 5
-	FaceWest 5
-	FaceNorth 5
-	WalkNormalNorth
-	Delay32
-	EndMovement
-
-	.balign 4, 0
-_0E38:
-	FaceWest
-	EmoteExclamationMark
-	WalkOnSpotFastNorth 4
-	FaceSouth 2
-	FaceEast 2
-	FaceNorth 2
-	FaceWest 2
-	WalkOnSpotFastWest 4
-	WalkFastWest 6
-	EndMovement
-
-	.balign 4, 0
-_0E60:
-	JumpOnSpotFastWest 4
-	EndMovement
-
-	.balign 4, 0
-_0E68:
-	FaceWest
-	WalkNormalWest
-	FaceSouth
-	WalkNormalSouth 4
-	FaceWest
-	WalkNormalWest 2
-	EndMovement
-
-	.balign 4, 0
-_0E84:
-	FaceSouth 2
-	EmoteExclamationMark
-	WalkNormalSouth
-	FaceWest
-	WalkNormalWest 6
-	EndMovement
-
-	.balign 4, 0
-_0E9C:
-	FaceWest 4
-	EndMovement
-
-	.balign 4, 0
-_0EA4:
-	Delay16
-	WalkNormalSouth 6
-	FaceEast
-	EmoteExclamationMark
-	EndMovement
-
-	.balign 4, 0
-_0EB8:
-	WalkOnSpotFastEast 4
-	EndMovement
-
-	.balign 4, 0
-_0EC0:
-	FaceSouth
-	WalkNormalSouth 4
-	FaceWest
-	WalkNormalWest 2
-	EndMovement
-
+	; 0x0E06
+	.byte 0x00, 0x00, 0x42, 0x00, 0x01, 0x00, 0x10, 0x00, 0x08, 0x00
+	.byte 0x47, 0x00, 0x01, 0x00, 0x35, 0x00, 0x01, 0x00, 0x48, 0x00, 0x01, 0x00, 0x03, 0x00, 0x05, 0x00
+	.byte 0x00, 0x00, 0x05, 0x00, 0x02, 0x00, 0x05, 0x00, 0x00, 0x00, 0x05, 0x00, 0x0c, 0x00, 0x01, 0x00
+	.byte 0x42, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x02, 0x00, 0x01, 0x00, 0x4b, 0x00, 0x01, 0x00
+	.byte 0x24, 0x00, 0x04, 0x00, 0x01, 0x00, 0x02, 0x00, 0x03, 0x00, 0x02, 0x00, 0x00, 0x00, 0x02, 0x00
+	.byte 0x02, 0x00, 0x02, 0x00, 0x26, 0x00, 0x04, 0x00, 0x12, 0x00, 0x06, 0x00, 0xfe, 0x00, 0x00, 0x00
+	.byte 0x32, 0x00, 0x04, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x02, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x01, 0x00
+	.byte 0x01, 0x00, 0x01, 0x00, 0x0d, 0x00, 0x04, 0x00, 0x02, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x02, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x4b, 0x00, 0x01, 0x00, 0x0d, 0x00, 0x01, 0x00
+	.byte 0x02, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x06, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x02, 0x00, 0x04, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00, 0x41, 0x00, 0x01, 0x00, 0x0d, 0x00, 0x06, 0x00, 0x03, 0x00, 0x01, 0x00
+	.byte 0x4b, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x27, 0x00, 0x04, 0x00, 0xfe, 0x00, 0x00, 0x00
+	.byte 0x01, 0x00, 0x01, 0x00, 0x0d, 0x00, 0x04, 0x00, 0x02, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x02, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00
 scr_seq_T20_007:
 	BufferPlayersName 0
-	TrainerTipsEx 2, msg_0542_T20_00035
+	SetSignpostMap 2, 0
+	SetSignpostAction 3
+	WaitSignpostAction
+	TrainerTips msg_0542_T20_00035, VAR_SPECIAL_RESULT
+	CallStd std_signpost
 	End
 
 scr_seq_T20_008:
 	FollowMonResetMovement
 	LockAll
 	CallStd std_play_friend_music
-	ApplyMovement obj_T20_var_1, _0F84
-	ApplyMovement obj_T20_tsure_poke_static_marill, _0FBC
-	WaitMovement
-	ToggleFollowingPokemonMovement 0
-	WaitFollowingPokemonMovement
-	FollowingPokemonMovement 55
-	ApplyMovement obj_player, _0FE8
-	ApplyMovement obj_T20_var_1, _0FF4
-	WaitMovement
-	WaitFollowingPokemonMovement
-	ToggleFollowingPokemonMovement 1
-	FollowingPokemonMovement 48
-	BufferPlayersName 0
-	BufferPartyMonSpeciesNameIndef 1, 0
-	GenderMsgBox msg_0542_T20_00015, msg_0542_T20_00016
+	NPCMsg msg_0542_T20_00015
 	CloseMsg
-	ApplyMovement obj_T20_var_1, _1000
-	ApplyMovement obj_T20_tsure_poke_static_marill, _1014
-	ApplyMovement obj_player, _1038
-	WaitMovement
-	ApplyMovement obj_T20_var_1, _1044
-	ApplyMovement obj_T20_tsure_poke_static_marill, _104C
-	WaitMovement
-	HidePerson obj_T20_tsure_poke_static_marill
-	HidePerson obj_T20_var_1
+	GoTo _0F66
+
+	; 0x0EFF
+	.byte 0x00
+	.byte 0xb8, 0x00, 0x00, 0x00, 0x5f, 0x00, 0x5a, 0x02, 0x00, 0x00, 0x5b, 0x02, 0x5c, 0x02, 0x37, 0x00
+	.byte 0x5e, 0x00, 0xff, 0x00, 0xd0, 0x00, 0x00, 0x00, 0x5e, 0x00, 0x04, 0x00, 0xd4, 0x00, 0x00, 0x00
+	.byte 0x5f, 0x00, 0x5b, 0x02, 0x5a, 0x02, 0x01, 0x00, 0x5c, 0x02, 0x30, 0x00, 0xbe, 0x00, 0x00, 0x4d
+	.byte 0x03, 0x01, 0x00, 0x00, 0x84, 0x00, 0x0f, 0x10, 0x35, 0x00, 0x5e, 0x00, 0x04, 0x00, 0xbe, 0x00
+	.byte 0x00, 0x00, 0x5e, 0x00, 0x03, 0x00, 0xca, 0x00, 0x00, 0x00, 0x5e, 0x00, 0xff, 0x00, 0xe6, 0x00
+	.byte 0x00, 0x00, 0x5f, 0x00, 0x5e, 0x00, 0x04, 0x00, 0xe8, 0x00, 0x00, 0x00, 0x5e, 0x00, 0x03, 0x00
+	.byte 0xe8, 0x00, 0x00, 0x00, 0x5f, 0x00
+_0F66:
+	HidePerson 3
+	HidePerson 4
 	SetFlag FLAG_HIDE_NEW_BARK_MARILL
 	SetFlag FLAG_HIDE_NEW_BARK_FRIEND
 	CallStd std_fade_end_friend_music
@@ -1193,113 +1211,50 @@ scr_seq_T20_008:
 	ReleaseAll
 	End
 
-	.balign 4, 0
-_0F84:
-	Delay4 4
-	Delay4 2
-	WalkOnSpotFastSouth
-	Delay4 2
-	WalkOnSpotFastEast
-	Delay4
-	WalkOnSpotFastNorth
-	Delay4
-	WalkOnSpotFastSouth
-	Delay4
-	WalkOnSpotFastNorth
-	Delay4
-	EmoteExclamationMark
-	EndMovement
-
-	.balign 4, 0
-_0FBC:
-	JumpOnSpotFastEast 3
-	WalkFastSouth
-	WalkFastEast 2
-	WalkFastNorth 2
-	WalkFastWest 2
-	WalkFastSouth 2
-	WalkFastNorth 2
-	WalkFastEast 2
-	WalkFastSouth
-	WalkOnSpotNormalWest
-	EndMovement
-
-	.balign 4, 0
-_0FE8:
-	WalkNormalSouth 2
-	WalkNormalEast
-	EndMovement
-
-	.balign 4, 0
-_0FF4:
-	Delay8
-	WalkOnSpotNormalWest
-	EndMovement
-
-	.balign 4, 0
-_1000:
-	WalkNormalSouth
-	WalkNormalWest 2
-	WalkNormalSouth 5
-	WalkOnSpotNormalNorth
-	EndMovement
-
-	.balign 4, 0
-_1014:
-	WalkNormalWest
-	WalkNormalSouth
-	WalkNormalWest 2
-	WalkOnSpotNormalNorth
-	Delay8 3
-	WalkOnSpotNormalSouth
-	WalkFastSouth 4
-	JumpOnSpotFastSouth 2
-	EndMovement
-
-	.balign 4, 0
-_1038:
-	Delay8 2
-	WalkOnSpotNormalSouth
-	EndMovement
-
-	.balign 4, 0
-_1044:
-	WalkNormalSouth 3
-	EndMovement
-
-	.balign 4, 0
-_104C:
-	WalkNormalSouth 4
-	EndMovement
-
+	; 0x0F84
+	.byte 0x3e, 0x00, 0x04, 0x00, 0x3e, 0x00, 0x02, 0x00, 0x25, 0x00, 0x01, 0x00
+	.byte 0x3e, 0x00, 0x02, 0x00, 0x27, 0x00, 0x01, 0x00, 0x3e, 0x00, 0x01, 0x00, 0x24, 0x00, 0x01, 0x00
+	.byte 0x3e, 0x00, 0x01, 0x00, 0x25, 0x00, 0x01, 0x00, 0x3e, 0x00, 0x01, 0x00, 0x24, 0x00, 0x01, 0x00
+	.byte 0x3e, 0x00, 0x01, 0x00, 0x4b, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x33, 0x00, 0x03, 0x00
+	.byte 0x11, 0x00, 0x01, 0x00, 0x13, 0x00, 0x02, 0x00, 0x10, 0x00, 0x02, 0x00, 0x12, 0x00, 0x02, 0x00
+	.byte 0x11, 0x00, 0x02, 0x00, 0x10, 0x00, 0x02, 0x00, 0x13, 0x00, 0x02, 0x00, 0x11, 0x00, 0x01, 0x00
+	.byte 0x22, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x02, 0x00, 0x0f, 0x00, 0x01, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00, 0x3f, 0x00, 0x01, 0x00, 0x22, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00
+	.byte 0x0d, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x02, 0x00, 0x0d, 0x00, 0x05, 0x00, 0x20, 0x00, 0x01, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00, 0x0e, 0x00, 0x01, 0x00, 0x0d, 0x00, 0x01, 0x00, 0x0e, 0x00, 0x02, 0x00
+	.byte 0x20, 0x00, 0x01, 0x00, 0x3f, 0x00, 0x03, 0x00, 0x21, 0x00, 0x01, 0x00, 0x11, 0x00, 0x04, 0x00
+	.byte 0x31, 0x00, 0x02, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x3f, 0x00, 0x02, 0x00, 0x21, 0x00, 0x01, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x03, 0x00, 0xfe, 0x00, 0x00, 0x00, 0x0d, 0x00, 0x04, 0x00
+	.byte 0xfe, 0x00, 0x00, 0x00
 scr_seq_T20_010:
 	FollowMonIsActive VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfEq _1078
+	CompareVarToValue VAR_SPECIAL_RESULT, 0
+	GoToIf eq, _1078
 	FollowMonIsLarge VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _1078
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _1078
 	FollowMonRecall
 _1078:
 	PlaySE SEQ_SE_DP_KAIDAN2
 	FadeScreen 6, 1, 0, RGB_BLACK
 	WaitFade
-	Warp MAP_NEW_BARK_ELMS_LAB_2F, 0, 12, 6, DIR_WEST
+	Warp 62, 0, 12, 6, DIR_WEST
 	FadeScreen 6, 1, 1, RGB_BLACK
 	WaitFade
 	WaitSE SEQ_SE_DP_KAIDAN2
-	SetSpecialSpawnWarp MAP_NEW_BARK, 688, 393
+	SetSpecialSpawnWarp 60, 688, 393
 	SetVar VAR_UNK_407C, 1
 	End
 
-	.balign 4, 0
-_10B4:
-	WalkNormalSouth
-	EndMovement
-
+	; 0x10B4
+	.byte 0x0d, 0x00, 0x01, 0x00, 0xfe, 0x00, 0x00, 0x00
 scr_seq_T20_016:
 	BufferFriendsName 0
-	TrainerTipsEx 2, msg_0542_T20_00035
+	SetSignpostMap 2, 0
+	SetSignpostAction 3
+	WaitSignpostAction
+	TrainerTips msg_0542_T20_00035, VAR_SPECIAL_RESULT
+	CallStd std_signpost
 	End
 
 scr_seq_T20_017:
@@ -1311,11 +1266,11 @@ scr_seq_T20_017:
 	TouchscreenMenuHide
 	GetMenuChoice VAR_SPECIAL_RESULT
 	TouchscreenMenuShow
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _11FC
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf eq, _11FC
 	PhotoAlbumIsFull VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfEq _1224
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf eq, _1224
 	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
 	MsgBoxExtern VAR_SPECIAL_RESULT, 1
 	CloseMsg
@@ -1323,36 +1278,36 @@ scr_seq_T20_017:
 	WaitFollowingPokemonMovement
 	FollowingPokemonMovement 55
 	GetPlayerFacing VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfNe _114D
+	CompareVarToValue VAR_SPECIAL_RESULT, 0
+	GoToIf ne, _114D
 	ApplyMovement obj_player, _1238
-	ApplyMovement obj_T20_gsmiddleman1, _1284
+	ApplyMovement 6, _1284
 	GoTo _119B
 
 _114D:
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _1168
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _1168
 	ApplyMovement obj_player, _1250
 	GoTo _119B
 
 _1168:
-	Compare VAR_SPECIAL_RESULT, 3
-	GoToIfNe _118B
+	CompareVarToValue VAR_SPECIAL_RESULT, 3
+	GoToIf ne, _118B
 	ApplyMovement obj_player, _1270
-	ApplyMovement obj_T20_gsmiddleman1, _1284
+	ApplyMovement 6, _1284
 	GoTo _119B
 
 _118B:
 	ApplyMovement obj_player, _125C
-	ApplyMovement obj_T20_gsmiddleman1, _1284
+	ApplyMovement 6, _1284
 _119B:
 	WaitMovement
 	WaitFollowingPokemonMovement
 	ToggleFollowingPokemonMovement 1
 	FollowingPokemonMovement 48
 	FollowMonIsActive VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 1
-	GoToIfNe _11C2
+	CompareVarToValue VAR_SPECIAL_RESULT, 1
+	GoToIf ne, _11C2
 	ApplyMovement obj_partner_poke, _1290
 	WaitMovement
 _11C2:
@@ -1379,14 +1334,9 @@ _11FC:
 	ReleaseAll
 	End
 
-_1210:
-	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
-	MsgBoxExtern VAR_SPECIAL_RESULT, 4
-	WaitButton
-	CloseMsg
-	ReleaseAll
-	End
-
+	; 0x1210
+	.byte 0xb6, 0x01, 0x02, 0x00, 0x0c, 0x80, 0xb8, 0x01, 0x0c, 0x80, 0x04, 0x00, 0x32, 0x00, 0x35, 0x00
+	.byte 0x61, 0x00, 0x02, 0x00
 _1224:
 	GetStdMsgNaix 2, VAR_SPECIAL_RESULT
 	MsgBoxExtern VAR_SPECIAL_RESULT, 3
@@ -1395,66 +1345,72 @@ _1224:
 	ReleaseAll
 	End
 
-	.balign 4, 0
+
 _1238:
-	WalkNormalEast
-	WalkNormalNorth 2
-	WalkNormalWest
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
+
+	; 0x1238
+	step 15, 1
+	step 12, 2
+	step 14, 1
+	step 12, 3
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _1250:
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
+
+	; 0x1250
+	step 12, 3
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _125C:
-	WalkNormalNorth
-	WalkNormalWest
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
+
+	; 0x125C
+	step 12, 1
+	step 14, 1
+	step 12, 3
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _1270:
-	WalkNormalNorth
-	WalkNormalEast
-	WalkNormalNorth 3
-	WalkOnSpotNormalSouth
+
+	; 0x1270
+	step 12, 1
+	step 15, 1
+	step 12, 3
+	step 33, 1
 	EndMovement
 
-	.balign 4, 0
 _1284:
-	Delay8
-	WalkOnSpotNormalNorth
+
+	; 0x1284
+	step 63, 1
+	step 32, 1
 	EndMovement
 
-	.balign 4, 0
 _1290:
-	WalkNormalEast
-	WalkNormalNorth
-	FaceSouth
-	EndMovement
 
+	; 0x1290
+	step 15, 1
+	step 12, 1
+	step 1, 1
+	EndMovement
 scr_seq_T20_011:
 	FollowMonResetMovement
 	LockAll
-	Compare VAR_TEMP_x4007, 2
-	GoToIfEq _144F
+	CompareVarToValue VAR_TEMP_x4007, 2
+	GoToIf eq, _144F
 	DoorAnimationLoad 21, 12, 23, 12, 77
 	DoorAnimationOpen 77
 	DoorAnimationWait 77
 	PlaySE SEQ_SE_DP_KAIDAN2
 	ClearFlag FLAG_HIDE_NEW_BARK_MOM
-	ShowPerson obj_T20_gsmama
+	ShowPerson 7
 	WaitSE SEQ_SE_DP_KAIDAN2
-	ApplyMovement obj_T20_gsmama, _1478
+	ApplyMovement 7, _1478
 	WaitMovement
-	Compare VAR_TEMP_x4007, 0
-	GoToIfNe _12F1
+	CompareVarToValue VAR_TEMP_x4007, 0
+	GoToIf ne, _12F1
 	BufferPlayersName 0
 	NPCMsg msg_0542_T20_00021
 	CloseMsg
@@ -1466,43 +1422,43 @@ _12F1:
 	ToggleFollowingPokemonMovement 0
 	WaitFollowingPokemonMovement
 	FollowingPokemonMovement 55
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _132D
-	ApplyMovement obj_T20_gsmama, _1480
+	CompareVarToValue VAR_SPECIAL_x8005, 398
+	GoToIf ne, _132D
+	ApplyMovement 7, _1480
 	ApplyMovement obj_player, _14A4
 	GoTo _13A6
 
 _132D:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _1350
-	ApplyMovement obj_T20_gsmama, _148C
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _1350
+	ApplyMovement 7, _148C
 	ApplyMovement obj_player, _14B0
 	GoTo _13A6
 
 _1350:
-	Compare VAR_SPECIAL_x8005, 400
-	GoToIfNe _1373
-	ApplyMovement obj_T20_gsmama, _1498
+	CompareVarToValue VAR_SPECIAL_x8005, 400
+	GoToIf ne, _1373
+	ApplyMovement 7, _1498
 	ApplyMovement obj_player, _14BC
 	GoTo _13A6
 
 _1373:
-	Compare VAR_SPECIAL_x8005, 401
-	GoToIfNe _1396
-	ApplyMovement obj_T20_gsmama, _1498
+	CompareVarToValue VAR_SPECIAL_x8005, 401
+	GoToIf ne, _1396
+	ApplyMovement 7, _1498
 	ApplyMovement obj_player, _14C8
 	GoTo _13A6
 
 _1396:
-	ApplyMovement obj_T20_gsmama, _1498
+	ApplyMovement 7, _1498
 	ApplyMovement obj_player, _14D8
 _13A6:
 	WaitMovement
 	WaitFollowingPokemonMovement
 	ToggleFollowingPokemonMovement 1
 	FollowingPokemonMovement 48
-	Compare VAR_TEMP_x4007, 0
-	GoToIfNe _13C8
+	CompareVarToValue VAR_TEMP_x4007, 0
+	GoToIf ne, _13C8
 	NPCMsg msg_0542_T20_00022
 	GoTo _13CB
 
@@ -1510,31 +1466,31 @@ _13C8:
 	NPCMsg msg_0542_T20_00023
 _13CB:
 	CloseMsg
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _13EA
-	ApplyMovement obj_T20_gsmama, _14E8
+	CompareVarToValue VAR_SPECIAL_x8005, 398
+	GoToIf ne, _13EA
+	ApplyMovement 7, _14E8
 	WaitMovement
 	GoTo _1411
 
 _13EA:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _1407
-	ApplyMovement obj_T20_gsmama, _14F0
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _1407
+	ApplyMovement 7, _14F0
 	WaitMovement
 	GoTo _1411
 
 _1407:
-	ApplyMovement obj_T20_gsmama, _14F8
+	ApplyMovement 7, _14F8
 	WaitMovement
 _1411:
 	DoorAnimationLoad 21, 12, 23, 12, 77
 	DoorAnimationOpen 77
 	DoorAnimationWait 77
-	ApplyMovement obj_T20_gsmama, _1500
+	ApplyMovement 7, _1500
 	WaitMovement
 	SetFlag FLAG_HIDE_NEW_BARK_MOM
 	PlaySE SEQ_SE_DP_KAIDAN2
-	HidePerson obj_T20_gsmama
+	HidePerson 7
 	WaitSE SEQ_SE_DP_KAIDAN2
 	DoorAnimationClose 77
 	DoorAnimationWait 77
@@ -1557,90 +1513,106 @@ _144F:
 	ReleaseAll
 	End
 
-	.balign 4, 0
+	; 0x1476
+	.byte 0x00, 0x00
+
 _1478:
-	WalkNormalSouth
+
+	; 0x1478
+	step 13, 1
 	EndMovement
 
-	.balign 4, 0
 _1480:
-	WalkNormalSouth
-	WalkOnSpotNormalEast
+
+	; 0x1480
+	step 13, 1
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _148C:
-	WalkNormalSouth 2
-	WalkOnSpotNormalEast
+
+	; 0x148C
+	step 13, 2
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _1498:
-	WalkNormalSouth 3
-	WalkOnSpotNormalEast
+
+	; 0x1498
+	step 13, 3
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _14A4:
-	WalkOnSpotNormalWest
-	WalkNormalWest 4
+
+	; 0x14A4
+	step 34, 1
+	step 14, 4
 	EndMovement
 
-	.balign 4, 0
 _14B0:
-	WalkOnSpotNormalWest
-	WalkNormalWest 4
+
+	; 0x14B0
+	step 34, 1
+	step 14, 4
 	EndMovement
 
-	.balign 4, 0
 _14BC:
-	WalkOnSpotNormalWest
-	WalkNormalWest 4
+
+	; 0x14BC
+	step 34, 1
+	step 14, 4
 	EndMovement
 
-	.balign 4, 0
 _14C8:
-	WalkNormalWest 2
-	WalkNormalNorth
-	WalkNormalWest 2
+
+	; 0x14C8
+	step 14, 2
+	step 12, 1
+	step 14, 2
 	EndMovement
 
-	.balign 4, 0
 _14D8:
-	WalkNormalWest 2
-	WalkNormalNorth 2
-	WalkNormalWest 2
+
+	; 0x14D8
+	step 14, 2
+	step 12, 2
+	step 14, 2
 	EndMovement
 
-	.balign 4, 0
 _14E8:
-	WalkNormalNorth
+
+	; 0x14E8
+	step 12, 1
 	EndMovement
 
-	.balign 4, 0
 _14F0:
-	WalkNormalNorth 2
+
+	; 0x14F0
+	step 12, 2
 	EndMovement
 
-	.balign 4, 0
 _14F8:
-	WalkNormalNorth 3
+
+	; 0x14F8
+	step 12, 3
 	EndMovement
 
-	.balign 4, 0
 _1500:
-	WalkNormalNorth
+
+	; 0x1500
+	step 12, 1
 	EndMovement
 
-	.balign 4, 0
 _1508:
-	WalkNormalWest
-	EndMovement
 
+	; 0x1508
+	step 14, 1
+	EndMovement
 scr_seq_T20_012:
 	FollowMonResetMovement
 	LockAll
-	ApplyMovement obj_T20_var_1_2, _1644
+	ApplyMovement 8, _1644
 	WaitMovement
 	BufferPlayersName 0
 	GenderMsgBox msg_0542_T20_00027, msg_0542_T20_00028
@@ -1649,31 +1621,31 @@ scr_seq_T20_012:
 	ToggleFollowingPokemonMovement 0
 	WaitFollowingPokemonMovement
 	FollowingPokemonMovement 55
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _1552
-	ApplyMovement obj_T20_var_1_2, _1650
+	CompareVarToValue VAR_SPECIAL_x8005, 398
+	GoToIf ne, _1552
+	ApplyMovement 8, _1650
 	GoTo _15AB
 
 _1552:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _156D
-	ApplyMovement obj_T20_var_1_2, _1658
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _156D
+	ApplyMovement 8, _1658
 	GoTo _15AB
 
 _156D:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _1588
-	ApplyMovement obj_T20_var_1_2, _1660
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _1588
+	ApplyMovement 8, _1660
 	GoTo _15AB
 
 _1588:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _15A3
-	ApplyMovement obj_T20_var_1_2, _1668
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _15A3
+	ApplyMovement 8, _1668
 	GoTo _15AB
 
 _15A3:
-	ApplyMovement obj_T20_var_1_2, _1670
+	ApplyMovement 8, _1670
 _15AB:
 	ApplyMovement obj_player, _1678
 	WaitMovement
@@ -1683,97 +1655,111 @@ _15AB:
 	BufferPlayersName 0
 	GenderMsgBox msg_0542_T20_00029, msg_0542_T20_00030
 	CloseMsg
-	Compare VAR_SPECIAL_x8005, 398
-	GoToIfNe _15E3
-	ApplyMovement obj_T20_var_1_2, _1680
+	CompareVarToValue VAR_SPECIAL_x8005, 398
+	GoToIf ne, _15E3
+	ApplyMovement 8, _1680
 	GoTo _163C
 
 _15E3:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _15FE
-	ApplyMovement obj_T20_var_1_2, _1688
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _15FE
+	ApplyMovement 8, _1688
 	GoTo _163C
 
 _15FE:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _1619
-	ApplyMovement obj_T20_var_1_2, _1690
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _1619
+	ApplyMovement 8, _1690
 	GoTo _163C
 
 _1619:
-	Compare VAR_SPECIAL_x8005, 399
-	GoToIfNe _1634
-	ApplyMovement obj_T20_var_1_2, _1698
+	CompareVarToValue VAR_SPECIAL_x8005, 399
+	GoToIf ne, _1634
+	ApplyMovement 8, _1698
 	GoTo _163C
 
 _1634:
-	ApplyMovement obj_T20_var_1_2, _16A0
+	ApplyMovement 8, _16A0
 _163C:
 	WaitMovement
 	ReleaseAll
 	End
 
-	.balign 4, 0
+	; 0x1642
+	.byte 0x00, 0x00
+
 _1644:
-	FaceEast
-	EmoteExclamationMark
+
+	; 0x1644
+	step 3, 1
+	step 75, 1
 	EndMovement
 
-	.balign 4, 0
 _1650:
-	WalkOnSpotNormalEast
+
+	; 0x1650
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _1658:
-	WalkOnSpotNormalEast
+
+	; 0x1658
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _1660:
-	WalkNormalEast
+
+	; 0x1660
+	step 15, 1
 	EndMovement
 
-	.balign 4, 0
 _1668:
-	WalkOnSpotNormalEast
+
+	; 0x1668
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _1670:
-	WalkOnSpotNormalEast
+
+	; 0x1670
+	step 35, 1
 	EndMovement
 
-	.balign 4, 0
 _1678:
-	WalkNormalWest 2
+
+	; 0x1678
+	step 14, 2
 	EndMovement
 
-	.balign 4, 0
 _1680:
-	WalkOnSpotNormalWest
+
+	; 0x1680
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _1688:
-	WalkOnSpotNormalWest
+
+	; 0x1688
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _1690:
-	WalkOnSpotNormalWest
+
+	; 0x1690
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _1698:
-	WalkOnSpotNormalWest
+
+	; 0x1698
+	step 34, 1
 	EndMovement
 
-	.balign 4, 0
 _16A0:
-	WalkOnSpotNormalWest
-	EndMovement
 
+	; 0x16A0
+	step 34, 1
+	EndMovement
 scr_seq_T20_004:
 	PlaySE SEQ_SE_DP_SELECT
 	LockAll
@@ -1792,9 +1778,9 @@ scr_seq_T20_005:
 	NPCMsg msg_0542_T20_00033
 	WaitCry
 	CloseMsg
-	ApplyMovement obj_T20_tsure_poke_static_marill_2, _16F4
+	ApplyMovement 9, _16F4
 	WaitMovement
-	ApplyMovement obj_T20_var_1_2, _1700
+	ApplyMovement 8, _1700
 	WaitMovement
 	GenderMsgBox msg_0542_T20_00031, msg_0542_T20_00032
 	WaitButton
@@ -1802,27 +1788,45 @@ scr_seq_T20_005:
 	ReleaseAll
 	End
 
-	.balign 4, 0
+	; 0x16F1
+	.byte 0x00, 0x00, 0x00
+
 _16F4:
-	JumpOnSpotSlowEast
-	JumpOnSpotSlowEast
+
+	; 0x16F4
+	step 47, 1
+	step 47, 1
 	EndMovement
 
-	.balign 4, 0
 _1700:
-	WalkOnSpotNormalWest
-	EndMovement
 
+	; 0x1700
+	step 34, 1
+	EndMovement
 scr_seq_T20_013:
-	TrainerTipsEx 2, msg_0542_T20_00036
+	SetSignpostMap 2, 0
+	SetSignpostAction 3
+	WaitSignpostAction
+	TrainerTips msg_0542_T20_00036, VAR_SPECIAL_RESULT
+	CallStd std_signpost
 	End
 
 scr_seq_T20_014:
-	DirectionSignpostEx 0, 11, msg_0542_T20_00034
+	DirectionSignpost msg_0542_T20_00034, 0, 11, VAR_SPECIAL_RESULT
+	SetSignpostAction 3
+	WaitSignpostAction
+	WaitSignpost VAR_SPECIAL_RESULT
+	CallStd std_signpost
 	End
 
 scr_seq_T20_015:
 	BufferPlayersName 0
-	SimpleNPCMsg msg_0542_T20_00012
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0542_T20_00012
+	WaitButton
+	CloseMsg
+	ReleaseAll
 	End
 	.balign 4, 0

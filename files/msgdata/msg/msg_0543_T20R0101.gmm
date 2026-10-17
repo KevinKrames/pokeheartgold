@@ -86,7 +86,7 @@
 	</row>
 	<row id="msg_0543_T20R0101_00021" index="21">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Pokémon are weak in the beginning.\rDon’t hesitate to use a Potion if you\nthink yours is in danger.\r</language>
+		<language name="English">{STRVAR_1 3, 0, 0} memorized\nProfessor Elm’s number!\r</language>
 	</row>
 	<row id="msg_0543_T20R0101_00022" index="22">
 		<attribute name="window_context_name">used</attribute>
@@ -423,5 +423,82 @@
 	<row id="msg_0543_T20R0101_00105" index="105">
 		<attribute name="window_context_name">used</attribute>
 		<language name="English">Hmm...\nAs far as I know, there are no\fPokémon like this at Johto...\rJust like Mr. Pokémon was saying\nover the phone.\rYou seem to be there when\nsomething exciting happens,\f{STRVAR_1 3, 0, 0}!\rYou are making me all excited!\nI’ll give you a present for that.\fPlease take it.\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00106" index="106">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Here’s your Pokégear.\n</language>
+	</row>
+	<row id="msg_0543_T20R0101_00107" index="107">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0, 0} received\nthe Pokégear!\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00108" index="108">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Good luck on the run {STRVAR_1 3, 0, 0}!\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00109" index="109">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{SIZE 200}I am thou, thou art I.{SIZE 100}\r{SIZE 200}What is thy name?{SIZE 100}\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00110" index="110">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{SIZE 200}Thy name is now {STRVAR_1 3, 0, 0}.{SIZE 100}\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00111" index="111">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{SIZE 200}{STRVAR_1 3, 0, 0}: Thou have made your choice.{SIZE 100}\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00112" index="112">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Launching FreeSeals.EXE...\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00113" index="113">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Test 1\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00114" index="114">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Enjoy the free seals!\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00115" index="115">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Test 3\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00116" index="116">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Test 4\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00117" index="117">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Test 5\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00118" index="118">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">FreeSeals.EXE has been launched!\nHave fun customizing!\r</language>
+	</row>
+	<row id="msg_0543_T20R0101_00119" index="119">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語"></language>
+	</row>
+	<row id="msg_0543_T20R0101_00120" index="120">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">The {STRVAR_1 10, 0, 0} were\nput away in the Seal Case!</language>
+	</row>
+	<row id="msg_0543_T20R0101_00121" index="121">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn off Ball Animations?\nCurrent Status: ON</language>
+	</row>
+	<row id="msg_0543_T20R0101_00122" index="122">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn on Ball Animations?\nCurrent Status: OFF</language>
+	</row>
+	<row id="msg_0543_T20R0101_00123" index="123">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ball Animations are now enabled!\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0543_T20R0101_00124" index="124">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ball Animations are now disabled.\nGood luck with the run!</language>
 	</row>
 </body>

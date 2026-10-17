@@ -24,4 +24,40 @@
 		<attribute name="window_context_name">used</attribute>
 		<language name="English">Welcome to the Pokémon\nCommunication Club Colosseum.\r...Oh, I was just trying to learn that\nline by heart.\rIt’ll take a little longer before\nwe open the Colosseum.</language>
 	</row>
+	<row id="msg_0552_T21PC0101_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hey there, I heard that you want\nto rename a Pokémon? {YESNO 0}</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Alright which Pokémon is it\ngonna be?</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it? Hmm...\nThat is a decent nickname!\rBut, I can give it a nicer name?\nHow about it? {YESNO 0}</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK, then. What shall the new\nnickname be?\r</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done!\nHow about that?\rFrom now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt is a better name than before,\nisn’t it?\fGood for you!</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ah, good. I see.\nDo come visit again if you change\fyour mind.</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00012" index="12">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done! From now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt looks no different from before?\nThat’s just you!\fThis is vastly superior!\fHow fortunate for you!</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00013" index="13">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it?\nThat is a truly impeccable nickname!\rTake good care of {STRVAR_1 1, 0, 0}!</language>
+	</row>
+	<row id="msg_0552_T21PC0101_00014" index="14">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Now, now.\nThat is merely an Egg!</language>
+	</row>
 </body>

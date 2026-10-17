@@ -2,10 +2,50 @@
 <body language="English">
 	<row id="msg_0555_T21R0501_00000" index="0">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Pokémon gain experience in battle\nand change their form.</language>
+		<language name="English">Come back when you have a Pokémon with\na friendship evolution nerd.\r</language>
 	</row>
 	<row id="msg_0555_T21R0501_00001" index="1">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">I heard that each Pokémon has its own\nnature, and it has something to do with\fPokémon stats!\n</language>
+		<language name="English">Totally get it, come back any time you\nneed a boost nerd.\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00002" index="2">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I see that you have {COLOR 2}{STRVAR_1 3, 0, 0}{COLOR 0} in\nyour party. Are you sure that you want\fto max out their friendship?\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00003" index="3">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}WARNING: Using this friendship booster\nis illegal for Kaizo IronMON and is\ronly here to save time for runners\nwho were going to run around for a\rhalf hour regardless to grind out\nfriendship. Are you sure that you\fwant to continue?\r{COLOR 0}</language>
+	</row>
+	<row id="msg_0555_T21R0501_00004" index="4">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 1}Are you really sure that you want to\ngo through with this? You can pretend\fthat I was never here.\r{COLOR 1}</language>
+	</row>
+	<row id="msg_0555_T21R0501_00005" index="5">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Alright, you’re the boss. Let me boost\nthat {COLOR 2}{STRVAR_1 3, 0, 0}{COLOR 0} you have real quick.\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00006" index="6">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Current Friendship: {STRVAR_1 3, 0, 0}\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00007" index="7">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Old Friendship: {STRVAR_1 3, 0, 0}\nNew Friendship:{STRVAR_1 3, 1, 0}</language>
+	</row>
+	<row id="msg_0555_T21R0501_00008" index="8">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{COLOR 2}{STRVAR_1 3, 0, 0}{COLOR 0} is now ready to\nevolve! Hope it was worth it.\rGood luck with the run, and don’t\ncome back!\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00009" index="9">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Bruh, you already got one cheat.\nDon’t be greedy! :(\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00010" index="10">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Current Number: {STRVAR_1 3, 0, 0}\nPokemon Name: {STRVAR_1 3, 1, 0}\r</language>
+	</row>
+	<row id="msg_0555_T21R0501_00011" index="11">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Current Slot Number: {STRVAR_1 3, 0, 0}\nCurrent Pokemon: {STRVAR_1 3, 1, 0}\r</language>
 	</row>
 </body>

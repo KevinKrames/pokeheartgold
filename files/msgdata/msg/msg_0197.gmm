@@ -123,15 +123,15 @@
 	</row>
 	<row id="msg_0197_00030" index="30">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">{STRVAR_1 1, 0, 0} fainted!\r</language>
+		<language name="English">{STRVAR_1 1, 0, 0} just died!\r</language>
 	</row>
 	<row id="msg_0197_00031" index="31">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">The wild {STRVAR_1 1, 0, 0} fainted!\r</language>
+		<language name="English">The wild {STRVAR_1 1, 0, 0} died!\r</language>
 	</row>
 	<row id="msg_0197_00032" index="32">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">The foe’s {STRVAR_1 1, 0, 0} fainted!\r</language>
+		<language name="English">The foe’s {STRVAR_1 1, 0, 0} died!\r</language>
 	</row>
 	<row id="msg_0197_00033" index="33">
 		<attribute name="window_context_name">used</attribute>
@@ -151,11 +151,11 @@
 	</row>
 	<row id="msg_0197_00037" index="37">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">{STRVAR_1 3, 0, 0} blacked out!\r</language>
+		<language name="English">{STRVAR_1 3, 0, 0}’s run is now dead!\r</language>
 	</row>
 	<row id="msg_0197_00038" index="38">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">... ... ... ...\r</language>
+		<language name="English">...I’m sorry for your loss.\r</language>
 	</row>
 	<row id="msg_0197_00039" index="39">
 		<attribute name="window_context_name">used</attribute>
@@ -3890,15 +3890,15 @@
 	</row>
 	<row id="msg_0197_00969" index="969">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">You are challenged by\n{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}!\r</language>
+		<language name="English">{STRVAR_1 14, 0, 0} {STRVAR_1 3, 1, 0}\nis trying to end your run!\r</language>
 	</row>
 	<row id="msg_0197_00970" index="970">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">You are challenged by\n{STRVAR_1 3, 0, 0}!\r</language>
+		<language name="English">{STRVAR_1 3, 0, 0}\nis trying to end your run!\r</language>
 	</row>
 	<row id="msg_0197_00971" index="971">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">You are challenged by\n{STRVAR_1 3, 0, 0} and {STRVAR_1 3, 1, 0}!\r</language>
+		<language name="English">{STRVAR_1 3, 0, 0} and {STRVAR_1 3, 1, 0}\nare trying to end your run!\r</language>
 	</row>
 	<row id="msg_0197_00972" index="972">
 		<attribute name="window_context_name">used</attribute>

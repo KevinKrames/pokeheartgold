@@ -22,7 +22,7 @@
 	</row>
 	<row id="msg_0380_R32_00005" index="5">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">You have some good Pokémon there.\rIt must be from the training you gave\nthem around Violet City.\rThe training at the Gym must have\nbeen especially helpful.\rAs a souvenir of Violet City, take this.\rIt increases the power of\nGrass-type moves.\r</language>
+		<language name="English">Take this useless seed I found on the\nfloor.\r</language>
 	</row>
 	<row id="msg_0380_R32_00006" index="6">
 		<attribute name="window_context_name">garbage</attribute>

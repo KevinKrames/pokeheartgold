@@ -2,7 +2,7 @@
 <body language="English">
 	<row id="msg_0040_00000" index="0">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon?{YESNO 0}</language>
+		<language name="English">Would you like to rest your\nPokémon?{YESNO 0}</language>
 	</row>
 	<row id="msg_0040_00001" index="1">
 		<attribute name="window_context_name">used</attribute>
@@ -10,7 +10,7 @@
 	</row>
 	<row id="msg_0040_00002" index="2">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Thank you for waiting.\rWe’ve restored your Pokémon to full\nhealth.\r</language>
+		<language name="English">We’ve restored your Pokémon to full\nhealth.\r</language>
 	</row>
 	<row id="msg_0040_00003" index="3">
 		<attribute name="window_context_name">used</attribute>
@@ -42,7 +42,7 @@
 	</row>
 	<row id="msg_0040_00010" index="10">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Your Pokémon may be infected with\nthe Pokérus.\rLittle is known about the Pokérus\nexcept that they are microscopic\flife-forms that attach to Pokémon.\rWhile infected, Pokémon are said to\ngrow exceptionally well.</language>
+		<language name="English">Bruh. You actually got a Pokémon with\nPokérus?! I wish I was that lucky...\r</language>
 	</row>
 	<row id="msg_0040_00011" index="11">
 		<attribute name="window_context_name">used</attribute>
@@ -275,14 +275,12 @@
 		<language name="English">Repel’s effect wore off...</language>
 	</row>
 	<row id="msg_0040_00066" index="66">
-		<attribute name="window_context_name">garbage</attribute>
-		<language name="English"></language>
-		<language name="日本語">XXXXXXXXXXXXX</language>
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 3, 0, 0} used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be repelled.</language>
 	</row>
 	<row id="msg_0040_00067" index="67">
-		<attribute name="window_context_name">garbage</attribute>
-		<language name="English"></language>
-		<language name="日本語">XXXXXXXXXXXXXXXXXXX</language>
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Repel’s effect wore off...\nUse another one?</language>
 	</row>
 	<row id="msg_0040_00068" index="68">
 		<attribute name="window_context_name">used</attribute>
@@ -291,12 +289,12 @@
 	<row id="msg_0040_00069" index="69">
 		<attribute name="window_context_name">garbage</attribute>
 		<language name="English"></language>
-		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+		<language name="日本語"></language>
 	</row>
 	<row id="msg_0040_00070" index="70">
 		<attribute name="window_context_name">garbage</attribute>
 		<language name="English"></language>
-		<language name="日本語">XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</language>
+		<language name="日本語"></language>
 	</row>
 	<row id="msg_0040_00071" index="71">
 		<attribute name="window_context_name">used</attribute>
@@ -353,7 +351,7 @@
 	</row>
 	<row id="msg_0040_00084" index="84">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Hello, and welcome to\nthe Pokémon Center.\rWe restore your tired Pokémon\nto full health.\rWould you like to rest your\nPokémon? {YESNO 0}</language>
+		<language name="English">Would you like to rest your\nPokémon? {YESNO 0}</language>
 	</row>
 	<row id="msg_0040_00085" index="85">
 		<attribute name="window_context_name">used</attribute>
@@ -485,5 +483,131 @@
 	<row id="msg_0040_00116" index="116">
 		<attribute name="window_context_name">used</attribute>
 		<language name="English">NOT TELLING</language>
+	</row>
+	<row id="msg_0040_00117" index="117">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">This number was blocked...</language>
+	</row>
+	<row id="msg_0040_00118" index="118">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">I am the Almighty Name Rater Quag!\nDo you want to rename a Pokémon? {YESNO 0}</language>
+	</row>
+	<row id="msg_0040_00119" index="119">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Alright, which Pokémon is it\ngoing to be?</language>
+	</row>
+	<row id="msg_0040_00120" index="120">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it? Hmm...\nThat is a decent nickname!\rBut, I can give it a nicer name?\nHow about it? {YESNO 0}</language>
+	</row>
+	<row id="msg_0040_00121" index="121">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">OK, then. What shall the new\nnickname be?\r</language>
+	</row>
+	<row id="msg_0040_00122" index="122">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done!\nHow about that?\rFrom now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt is a better name than before,\nisn’t it?\fGood for you!</language>
+	</row>
+	<row id="msg_0040_00123" index="123">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ah, good. I see.\nDo come visit again if you change\fyour mind.</language>
+	</row>
+	<row id="msg_0040_00124" index="124">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Done! From now on, this Pokémon\nshall be known as {STRVAR_1 1, 0, 0}!\rIt looks no different from before?\nThat’s just you!\fThis is vastly superior!\fHow fortunate for you!</language>
+	</row>
+	<row id="msg_0040_00125" index="125">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">{STRVAR_1 1, 0, 0}, is it?\nThat is a truly impeccable nickname!\rTake good care of {STRVAR_1 1, 0, 0}!</language>
+	</row>
+	<row id="msg_0040_00126" index="126">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Now, now.\nThat is merely an Egg!</language>
+	</row>
+	<row id="msg_0040_00127" index="127">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語"></language>
+	</row>
+	<row id="msg_0040_00128" index="128">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn off Ball Animations?\nCurrent Status: ON</language>
+	</row>
+	<row id="msg_0040_00129" index="129">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn on Ball Animations?\nCurrent Status: OFF</language>
+	</row>
+	<row id="msg_0040_00130" index="130">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ball Animations are now enabled!\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00131" index="131">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Ball Animations are now disabled.\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00132" index="132">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Select an option.</language>
+	</row>
+	<row id="msg_0040_00133" index="133">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Hello! I am the Toggle Quag!\nHopefully this new feature works.\r</language>
+	</row>
+	<row id="msg_0040_00134" index="134">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn off Auto Repels?\nCurrent Status: ON</language>
+	</row>
+	<row id="msg_0040_00135" index="135">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn on Auto Repels?\nCurrent Status: OFF</language>
+	</row>
+	<row id="msg_0040_00136" index="136">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Auto Repel is now enabled!\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00137" index="137">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Auto Repel is now disabled!\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00138" index="138">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn off Gym Animations?\nCurrent Status: ON</language>
+	</row>
+	<row id="msg_0040_00139" index="139">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Do you want to turn on Gym Animations?\nCurrent Status: OFF</language>
+	</row>
+	<row id="msg_0040_00140" index="140">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Gym Animations are now enabled!\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00141" index="141">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Gym Animations are now disabled.\nGood luck with the run!</language>
+	</row>
+	<row id="msg_0040_00142" index="142">
+		<attribute name="window_context_name">garbage</attribute>
+		<language name="English"></language>
+		<language name="日本語"></language>
+	</row>
+	<row id="msg_0040_00143" index="143">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">PokeRus Check (Function 96)</language>
+	</row>
+	<row id="msg_0040_00144" index="144">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jumps to Function 97</language>
+	</row>
+	<row id="msg_0040_00145" index="145">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jumps to Function 132</language>
+	</row>
+	<row id="msg_0040_00146" index="146">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jumps to Function 133</language>
+	</row>
+	<row id="msg_0040_00147" index="147">
+		<attribute name="window_context_name">used</attribute>
+		<language name="English">Jumps to Function 154</language>
 	</row>
 </body>

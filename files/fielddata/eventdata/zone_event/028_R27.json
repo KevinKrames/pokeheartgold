@@ -239,14 +239,14 @@
   ],
   "coords": [
     {
-      "scriptId": "_EV_scr_seq_R27_001 + 1",
+      "scriptId": 2,
       "x": 734,
-      "z": 402,
+      "z": 388,
       "w": 1,
       "h": 3,
       "y": 0,
       "val": 0,
-      "var": "VAR_UNK_408A"
+      "var": 16522
     }
   ]
 }

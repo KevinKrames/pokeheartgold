@@ -6,7 +6,7 @@
 	</row>
 	<row id="msg_0118_D37R0103_00001" index="1">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">This warehouse gets cleaned in a matter\nof seconds thanks to MACHOKE.\rThe stuff on the ground is junk.\nTake it if you want it!</language>
+		<language name="English">The Machoke went on strike so feel free\nto take whatever you can find.\r</language>
 	</row>
 	<row id="msg_0118_D37R0103_00002" index="2">
 		<attribute name="window_context_name">used</attribute>

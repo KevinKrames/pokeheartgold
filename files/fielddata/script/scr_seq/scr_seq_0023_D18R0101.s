@@ -1,43 +1,68 @@
 #include "constants/scrcmd.h"
-#include "fielddata/script/scr_seq/event_D18R0101.h"
-#include "msgdata/msg/msg_0060_D18R0101.h"
+#include "fielddata\script\scr_seq\event_D18R0101.h"
+#include "msgdata\msg\msg_0060_D18R0101.h"
 	.include "asm/macros/script.inc"
 
 	.rodata
 
-	ScrDef scr_seq_D18R0101_000
-	ScrDef scr_seq_D18R0101_001
-	ScrDef scr_seq_D18R0101_002
-	ScrDef scr_seq_D18R0101_003
-	ScrDefEnd
+	scrdef scr_seq_D18R0101_000
+	scrdef scr_seq_D18R0101_001
+	scrdef scr_seq_D18R0101_002
+	scrdef scr_seq_D18R0101_003
+	scrdef_end
+
+scr_seq_D18R0101_000:
+	FollowMonResetMovement
+	LockAll
+	SetVar VAR_UNK_40A2, 1
+	ReleaseAll
+	End
+
+scr_seq_D18R0101_001:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0060_D18R0101_00003
+	WaitButton
+	CloseMsg
+	ReleaseAll
+	End
+
+scr_seq_D18R0101_002:
+	PlaySE SEQ_SE_DP_SELECT
+	LockAll
+	FacePlayer
+	NPCMsg msg_0060_D18R0101_00004
+	WaitButton
+	CloseMsg
+	ReleaseAll
+	End
 
 scr_seq_D18R0101_003:
 	FollowMonResetMovement
 	LockAll
 	CallStd std_play_rival_intro_music
-	ApplyMovement obj_D18R0101_gsrivel, _00D0
+	ApplyMovement 0, _016A
 	WaitMovement
 	BufferRivalsName 0
 	NPCMsg msg_0060_D18R0101_00000
 	CloseMsg
 	GetStarterChoice VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 152
-	GoToIfNe _004B
+	CompareVarToValue VAR_SPECIAL_RESULT, 152
+	GoToIf ne, _007F
 	TrainerBattle TRAINER_RIVAL_SILVER_8, 0, 0, 0
-	GoTo _006E
+	GoTo _009A
 
-_004B:
-	Compare VAR_SPECIAL_RESULT, 155
-	GoToIfNe _0066
+_007F:
+	CompareVarToValue VAR_SPECIAL_RESULT, 155
+	GoToIf ne, _00F3
 	TrainerBattle TRAINER_RIVAL_SILVER_11, 0, 0, 0
-	GoTo _006E
+	GoTo _009A
 
-_0066:
-	TrainerBattle TRAINER_RIVAL_SILVER_4, 0, 0, 0
-_006E:
+_009A:
 	CheckBattleWon VAR_SPECIAL_RESULT
-	Compare VAR_SPECIAL_RESULT, 0
-	GoToIfEq _00C7
+	CompareVarToValue VAR_SPECIAL_RESULT, 0
+	GoToIf eq, _0154
 	CallStd std_play_rival_outro_music
 	BufferRivalsName 0
 	NPCMsg msg_0060_D18R0101_00001
@@ -45,78 +70,80 @@ _006E:
 	ToggleFollowingPokemonMovement 0
 	WaitFollowingPokemonMovement
 	FollowingPokemonMovement 56
-	ApplyMovement obj_player, _00E8
-	ApplyMovement obj_D18R0101_gsrivel, _00F8
+	ApplyMovement obj_player, _0182
+	ApplyMovement 0, _0192
 	WaitMovement
 	WaitFollowingPokemonMovement
 	ToggleFollowingPokemonMovement 1
 	FollowingPokemonMovement 48
-	HidePerson obj_D18R0101_gsrivel
+	HidePerson 0
 	CallStd std_fade_end_rival_outro_music
 	SetFlag FLAG_HIDE_BURNED_TOWER_1F_RIVAL
 	SetVar VAR_UNK_40A6, 1
 	ReleaseAll
 	End
 
-_00C7:
+_00F3:
+	TrainerBattle TRAINER_RIVAL_SILVER_4, 0, 0, 0
+	CheckBattleWon VAR_SPECIAL_RESULT
+	CompareVarToValue VAR_SPECIAL_RESULT, 0
+	GoToIf eq, _0154
+	CallStd std_play_rival_outro_music
+	BufferRivalsName 0
+	NPCMsg msg_0060_D18R0101_00001
+	CloseMsg
+	ToggleFollowingPokemonMovement 0
+	WaitFollowingPokemonMovement
+	FollowingPokemonMovement 56
+	ApplyMovement obj_player, _0182
+	ApplyMovement 0, _0192
+	WaitMovement
+	WaitFollowingPokemonMovement
+	ToggleFollowingPokemonMovement 1
+	FollowingPokemonMovement 48
+	HidePerson 0
+	CallStd std_fade_end_rival_outro_music
+	SetFlag FLAG_HIDE_BURNED_TOWER_1F_RIVAL
+	SetVar VAR_UNK_40A6, 1
+	ReleaseAll
+	End
+
+_0154:
 	WhiteOut
 	ReleaseAll
 	End
 
-	.balign 4, 0
-_00D0:
-	FaceSouth
-	EmoteExclamationMark
-	WalkNormalSouth 4
-	WalkNormalWest
-	FaceSouth
+	; 0x015A
+	.byte 0x02, 0x00, 0x01, 0x00, 0x4b, 0x00
+	.byte 0x01, 0x00, 0x0e, 0x00, 0x03, 0x00, 0xfe, 0x00, 0x00, 0x00
+
+_016A:
+
+	; 0x016A
+	step 1, 1
+	step 75, 1
+	step 13, 4
+	step 14, 1
+	step 1, 1
 	EndMovement
 
-	.balign 4, 0
-_00E8:
-	WalkNormalSouth 2
-	WalkNormalEast
-	FaceWest
+_0182:
+
+	; 0x0182
+	step 13, 2
+	step 15, 1
+	step 2, 1
 	EndMovement
 
-	.balign 4, 0
-_00F8:
-	WalkNormalSouth 3
-	WalkNormalWest
-	WalkNormalSouth
-	WalkNormalWest 3
-	WalkNormalSouth
-	WalkNormalWest 4
-	WalkNormalSouth 3
+_0192:
+
+	; 0x0192
+	step 13, 3
+	step 14, 1
+	step 13, 1
+	step 14, 3
+	step 13, 1
+	step 14, 4
+	step 13, 3
 	EndMovement
-
-scr_seq_D18R0101_000:
-	FollowMonResetMovement
-	LockAll
-	CallStd std_play_eusine_music
-	ApplyMovement obj_D18R0101_minaki, _0158
-	WaitMovement
-	BufferPlayersName 0
-	NPCMsg msg_0060_D18R0101_00002
-	WaitButton
-	CloseMsg
-	CallStd std_fade_end_eusine_music
-	SetVar VAR_UNK_40A2, 1
-	ReleaseAll
-	End
-
-scr_seq_D18R0101_001:
-	SimpleNPCMsg msg_0060_D18R0101_00003
-	End
-
-	.balign 4, 0
-_0158:
-	FaceWest
-	EmoteExclamationMark
-	WalkNormalWest 3
-	EndMovement
-
-scr_seq_D18R0101_002:
-	SimpleNPCMsg msg_0060_D18R0101_00004
-	End
 	.balign 4, 0

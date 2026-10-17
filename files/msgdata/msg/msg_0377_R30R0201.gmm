@@ -46,7 +46,7 @@
 	</row>
 	<row id="msg_0377_R30R0201_00011" index="11">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Professor Oak: ...Ah!\rYou seem to be dependable.\nHow would you like to help me out?\rSee? This is the latest version of\nthe Pokédex.\rIt automatically records data on\nPokémon you’ve seen or caught.\rIt’s a high-tech encyclopedia!\nI’d like you to have it.\r</language>
+		<language name="English">{STRVAR_1 3, 0, 0} received the National\nPokédex from Professor Oak!\r</language>
 	</row>
 	<row id="msg_0377_R30R0201_00012" index="12">
 		<attribute name="window_context_name">used</attribute>

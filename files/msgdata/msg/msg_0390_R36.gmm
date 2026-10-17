@@ -14,7 +14,7 @@
 	</row>
 	<row id="msg_0390_R36_00003" index="3">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Yo!\rHaven’t you had trouble with a boulder\nblocking your way? Of course you have!\rFor people like you, there’s an HM\nthat will come to your rescue!\r</language>
+		<language name="English">Rocks are cringe. Take this HM.\r</language>
 	</row>
 	<row id="msg_0390_R36_00004" index="4">
 		<attribute name="window_context_name">used</attribute>
@@ -22,7 +22,7 @@
 	</row>
 	<row id="msg_0390_R36_00005" index="5">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">It contains make-’em-faint Rock Smash.\rYou can even use it to smash boulders\nonce you’ve earned the Violet City\fGym Badge!\rBut beware!\nHidden moves like this are hard for\fyour Pokémon to forget once they’ve\flearned them.\rYou should think carefully which\nPokémon should learn it.</language>
+		<language name="English">Hope you find some shards!\r</language>
 	</row>
 	<row id="msg_0390_R36_00006" index="6">
 		<attribute name="window_context_name">used</attribute>

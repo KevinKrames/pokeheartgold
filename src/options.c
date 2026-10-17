@@ -20,7 +20,7 @@ void Options_Init(Options *options) {
 
     options->textSpeed = 1;   // mid speed
     options->soundMethod = 0; // stereo
-    options->battleStyle = 0; // shift
+    options->battleStyle = 1; // IronMON: set
     options->battleScene = 0; // on
     options->buttonMode = 0;  // normal
     options->frame = 0;       // frame 1
@@ -81,11 +81,11 @@ void Options_SetBattleScene(Options *options, u32 battleScene) {
 }
 
 u32 Options_GetBattleStyle(Options *options) {
-    return options->battleStyle;
+    return 1;
 }
 
 void Options_SetBattleStyle(Options *options, u32 battleStyle) {
-    options->battleStyle = battleStyle;
+    options->battleStyle = 1;
 }
 
 u32 Options_GetButtonMode(Options *options) {

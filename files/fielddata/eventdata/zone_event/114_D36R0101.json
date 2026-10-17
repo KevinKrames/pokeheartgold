@@ -296,11 +296,11 @@
       "y": 0
     },
     {
-      "id": "obj_D36R0101_dancer",
-      "spriteId": "SPRITE_DANCER",
+      "id": 12,
+      "spriteId": 232,
       "movement": 2,
       "type": 0,
-      "eventFlag": "FLAG_UNK_23D",
+      "eventFlag": 573,
       "scriptId": 0,
       "facingDirection": 1,
       "param0": 0,
@@ -308,8 +308,8 @@
       "param2": 0,
       "xRange": 0,
       "yRange": 0,
-      "x": 38,
-      "z": 16,
+      "x": 62,
+      "z": 2,
       "y": 0
     },
     {
@@ -504,14 +504,14 @@
       "var": "VAR_FARFETCHD2_STICKS4"
     },
     {
-      "scriptId": "_EV_scr_seq_D36R0101_015 + 1",
-      "x": 40,
-      "z": 20,
+      "scriptId": 16,
+      "x": 55,
+      "z": 10,
       "w": 2,
       "h": 1,
       "y": 0,
       "val": 0,
-      "var": "VAR_UNK_40E9"
+      "var": 16617
     },
     {
       "scriptId": "_EV_scr_seq_D36R0101_016 + 1",

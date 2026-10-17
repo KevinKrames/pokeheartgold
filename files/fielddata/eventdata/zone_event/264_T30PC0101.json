@@ -46,20 +46,20 @@
       "y": 0
     },
     {
-      "id": "obj_T30PC0101_gsman3",
-      "spriteId": "SPRITE_GSMAN3",
+      "id": 2,
+      "spriteId": 324,
       "movement": 4,
       "type": 0,
-      "eventFlag": "FLAG_NOTHING",
-      "scriptId": "_EV_scr_seq_T30PC0101_003 + 1",
+      "eventFlag": 0,
+      "scriptId": 4,
       "facingDirection": 0,
       "param0": 0,
       "param1": 0,
       "param2": 0,
       "xRange": 0,
       "yRange": 1,
-      "x": 12,
-      "z": 15,
+      "x": 15,
+      "z": 14,
       "y": 0
     },
     {
@@ -128,6 +128,23 @@
       "yRange": 1,
       "x": 11,
       "z": 4,
+      "y": 0
+    },
+    {
+      "id": 8,
+      "spriteId": 626,
+      "movement": 0,
+      "type": 0,
+      "eventFlag": 0,
+      "scriptId": 5,
+      "facingDirection": 1,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 12,
+      "z": 12,
       "y": 0
     }
   ],

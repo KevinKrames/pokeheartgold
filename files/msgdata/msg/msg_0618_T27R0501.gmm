@@ -22,15 +22,15 @@
 	</row>
 	<row id="msg_0618_T27R0501_00005" index="5">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Huh? Who are you?\rYou dare to get in my way?\r</language>
+		<language name="English">Show me your moves!\r</language>
 	</row>
 	<row id="msg_0618_T27R0501_00006" index="6">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Oh, no!\nYou make me look like a villain!\r</language>
+		<language name="English">*Falls on his face*\r</language>
 	</row>
 	<row id="msg_0618_T27R0501_00007" index="7">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Oops!\nI have an important mission.\rIf they find out I was wasting time\nhere, they’ll make me start over\fas the lowest Team Rocket Grunt!\rI better leave now!\r</language>
+		<language name="English">{SIZE 200}Ow....{SIZE 100}\r</language>
 	</row>
 	<row id="msg_0618_T27R0501_00008" index="8">
 		<attribute name="window_context_name">used</attribute>

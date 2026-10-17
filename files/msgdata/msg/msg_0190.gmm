@@ -2,7 +2,7 @@
 <body language="English">
 	<row id="msg_0190_00000" index="0">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Professor Elm: Touch a Poké Ball to\nsee what Pokémon is inside!</language>
+		<language name="English">Alright chat, you know the drill.\nWhat is the streamer running?</language>
 	</row>
 	<row id="msg_0190_00001" index="1">
 		<attribute name="window_context_name">used</attribute>
@@ -30,10 +30,10 @@
 	</row>
 	<row id="msg_0190_00007" index="7">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Once you’ve decided, touch a Poké Ball!</language>
+		<language name="English">What is the streamer running?</language>
 	</row>
 	<row id="msg_0190_00008" index="8">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Touch the Poké Ball button to select.\nTouch elsewhere to change your selection.</language>
+		<language name="English">I hope you got a good pick, RNG is never\nyour friend here.</language>
 	</row>
 </body>

@@ -171,7 +171,7 @@
 	</row>
 	<row id="msg_0254_00042" index="42">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Soul</language>
+		<language name="English">Chat</language>
 	</row>
 	<row id="msg_0254_00043" index="43">
 		<attribute name="window_context_name">used</attribute>
@@ -243,7 +243,7 @@
 	</row>
 	<row id="msg_0254_00060" index="60">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Soul</language>
+		<language name="English">Chat</language>
 	</row>
 	<row id="msg_0254_00061" index="61">
 		<attribute name="window_context_name">used</attribute>
@@ -340,7 +340,7 @@
 	</row>
 	<row id="msg_0254_00084" index="84">
 		<attribute name="window_context_name">used</attribute>
-		<language name="English">Soul</language>
+		<language name="English">Chat</language>
 	</row>
 	<row id="msg_0254_00085" index="85">
 		<attribute name="window_context_name">used</attribute>
