@@ -1064,29 +1064,8 @@ _0D70:
 	EndMovement
 
 scr_seq_T20_003:
-	FollowMonResetMovement
 	LockAll
-	Release obj_T20_tsure_poke_static_marill
-	ApplyMovement obj_T20_tsure_poke_static_marill, _0E08
-	WaitMovement
-	PlaySE SEQ_SE_DP_KAIDAN2
-	ClearFlag FLAG_HIDE_NEW_BARK_FRIEND
-	ShowPerson obj_T20_var_1
-	WaitSE SEQ_SE_DP_KAIDAN2
-	CallStd std_play_friend_music
-	ApplyMovement obj_T20_var_1, _0EA4
-	WaitMovement
-	ApplyMovement obj_T20_tsure_poke_static_marill, _0E38
-	WaitMovement
-	ApplyMovement obj_player, _0E9C
-	ApplyMovement obj_T20_var_1, _0EB8
-	WaitMovement
-	ApplyMovement obj_T20_tsure_poke_static_marill, _0E60
-	WaitMovement
-	ApplyMovement obj_T20_var_1, _0EC0
-	ApplyMovement obj_T20_tsure_poke_static_marill, _0E68
-	WaitMovement
-	CallStd std_fade_end_friend_music
+	; Skip the first Lyra/Ethan and Marill encounter outside the house.
 	SetVar VAR_SCENE_PLAYERS_HOUSE_1F, 2
 	HidePerson obj_T20_tsure_poke_static_marill
 	HidePerson obj_T20_var_1
