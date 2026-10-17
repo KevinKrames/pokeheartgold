@@ -16,7 +16,7 @@
   },
   "GNU_CPP_tokens": {
     "heartgold": [
-      "/workspace/tools/smart_wine.sh",
+      "wine",
       "tools/mwccarm/2.0/sp2p3/mwccarm.exe",
       "-DHEARTGOLD",
       "-DGAME_REMASTER=0",
@@ -78,7 +78,7 @@
       "error"
     ],
     "soulsilver": [
-      "/workspace/tools/smart_wine.sh",
+      "wine",
       "tools/mwccarm/2.0/sp2p3/mwccarm.exe",
       "-DSOULSILVER",
       "-DGAME_REMASTER=0",

@@ -18,7 +18,7 @@
     }
   },
   "C_base": [
-    "/workspace/tools/smart_wine.sh",
+    "wine",
     "tools/mwccarm/2.0/sp2p3/mwccarm.exe",
     "-DSDK_ARM7",
     "-O4,s",
@@ -76,7 +76,7 @@
     "-MD"
   ],
   "ASM_base": [
-    "/workspace/tools/smart_wine.sh",
+    "wine",
     "tools/mwccarm/2.0/sp2p3/mwasmarm.exe",
     "-DSDK_ARM7",
     "-proc",
