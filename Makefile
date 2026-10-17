@@ -65,6 +65,7 @@ HEADER_TEMPLATE := $(buildname)/rom_header_template.sbin
 .PRECIOUS: $(ROM)
 
 MAKEFLAGS += --no-print-directory
+MAKEFLAGS += -j$(shell nproc 2>/dev/null || echo 4)
 
 all:
 	$(MAKE) tools
